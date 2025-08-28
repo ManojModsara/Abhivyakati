@@ -1,0 +1,35 @@
+﻿form .required label::after {
+    color: #e32;
+    content: "*";
+    display: inline;
+}
+
+.select2-container .select2-choice
+{
+    height:34px !important;
+}
+
+.dropdown-menu > li > a {
+    color: #f5f5f5;
+    padding: 8px 15px 5px 15px;
+    font-weight: bold;
+    border: 1px solid #f5f5f5;
+    background-color: #204d74;
+}
+
+    .dropdown-menu > li > a:hover {
+        color: #204d74;
+        background-color: #f5f5f5;
+        /*border: 1px solid #204d74;*/
+    }
+
+
+.dropdown-menu > li:last-child > a {
+    margin-bottom: -4px;
+}
+
+
+.dropdown-menu > li:first-child > a {
+    margin-top: -5px;
+}
+

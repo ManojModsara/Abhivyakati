@@ -1,0 +1,57 @@
+﻿@using QuizGame.Dto;
+@using QuizGame.Web.Models.Others;
+@{
+    ViewBag.Title = "PhotoGallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/datatables/css", "~/Scripts/plugins/alertifyjs/css/alertify.min.css")
+
+<section class="content-header">
+    <h1>
+        Photo Gallery
+    </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            @Html.Partial("_Notification")
+            <div class="box">
+                <div class="box-header">
+                    <div class="btn-group">
+                        @{
+                            ActionAllowedDto act = (ActionAllowedDto)ViewBag.actionAllowed;
+                            if (act.AllowCreate)
+                            {
+                                @Html.ActionLink("Add Gallery Images", "AddPhotoGalleryImages", new { }, new { @class = "btn btn-primary" });
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive scroll_tbl">
+                        <table id="grid-index" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Image</th>
+                                    <th>UploadedDate</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Html.Partial("_Modal", new Modal { ID = "modal-delete-photogalleryimage", AreaLabeledId = "modal-delete-photogalleryimage-label", Size = QuizGame.Core.Enums.ModalSize.Medium })
+
+@section scripts{
+    @Scripts.Render("~/bundles/datatables", "~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/plugins/alertifyjs/alertify.min.js")
+    @Scripts.Render("~/Scripts/Custom/adminuser/photogallery.js?ver=1.02")
+}
+

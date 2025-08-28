@@ -1,0 +1,699 @@
+﻿@using QuizGame.Dto;
+@model QuizGame.Dto.JoinUsDto
+@{
+    ViewBag.Title = "JoinUs";
+    Layout = "~/Views/Shared/_LayoutFront.cshtml";
+}
+
+@Styles.Render("~/bundles/css/select2")
+@Styles.Render("~/Content/css/bootstrap-switch.css", "~/Scripts/plugins/alertifyjs/css/alertify.min.css", "~/Content/jquery-ui.css", "~/Content/css/bootstrap-datepicker.css")
+<style>
+        .hindi-text { font-family: 'Baloo Paaji 2', cursive; }
+        .id-card {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .form-section {
+            background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+            border: 1px solid #cbd5e1;
+        }
+        .offer-letter {
+            background: linear-gradient(to right, #eff6ff, #dbeafe);
+            border: 1px solid #93c5fd;
+        }
+        .qr-code {
+            background: white;
+            padding: 4px;
+            border-radius: 4px;
+        }
+        @@media print {
+            .no-print { display: none !important; }
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .offer-letter-card {
+                box-shadow: none !important;
+                border: 2px solid #3b82f6 !important;
+                margin: 0 !important;
+                max-width: none !important;
+                page-break-inside: avoid;
+            }
+            .watermark {
+                opacity: 0.03 !important;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+        .offer-letter-card {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 6rem;
+            color: rgba(59, 130, 246, 0.05);
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 1;
+        }
+</style>
+
+
+<!-- Hero Section -->
+<section class="relative mt-24 py-16 bg-gradient-to-br from-teal-50 via-emerald-50 to-cyan-50 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-10 w-32 h-32 bg-teal-400 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-24 h-24 bg-emerald-400 rounded-full animate-bounce"></div>
+        <div class="absolute top-1/2 left-1/3 w-16 h-16 bg-cyan-400 rounded-full animate-ping"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-flex items-center px-6 py-3 bg-teal-100 rounded-full border border-teal-200 mb-6">
+                <span class="text-teal-700 text-sm font-semibold hindi-text">🤝 हमारे साथ जुड़ें</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+                <span class="bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-600 bg-clip-text text-transparent hindi-text">
+                    सदस्यता आवेदन फॉर्म
+                </span>
+            </h1>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-4">
+                Membership Application Form
+            </h2>
+
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed hindi-text">
+                अभिव्यक्ति फाउंडेशन के साथ जुड़कर समाज सेवा में अपना योगदान दें और एक बेहतर कल का निर्माण करें।
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <button onclick="document.getElementById('membershipForm').scrollIntoView({behavior: 'smooth'})"
+                        class="px-8 py-4 bg-gradient-to-r from-teal-600 to-emerald-600 text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-user-plus mr-2"></i>अभी आवेदन करें
+                </button>
+                <button onclick="document.getElementById('preview-name').parentElement.parentElement.parentElement.parentElement.scrollIntoView({behavior: 'smooth'})"
+                        class="px-8 py-4 bg-white text-teal-600 border-2 border-teal-600 rounded-full font-bold text-lg hover:bg-teal-600 hover:text-white transition-all duration-300">
+                    <i class="fas fa-id-card mr-2"></i>ID Card Preview
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container mx-auto px-4 py-8">
+
+
+    <!-- Rules & Terms Section -->
+    <section class="mb-12 bg-white rounded-xl shadow-xl p-8 border border-gray-200">
+        <h3 class="text-3xl font-bold text-center mb-8 hindi-text text-blue-900">
+            <i class="fas fa-gavel mr-3 text-blue-600"></i>
+            नियम व शर्तें / Rules & Terms
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Hindi Rules -->
+            <div class="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500">
+                <h4 class="text-xl font-semibold mb-6 hindi-text text-blue-800 flex items-center">
+                    <i class="fas fa-list-ul mr-2"></i>नियम व शर्तें:
+                </h4>
+                <ul class="space-y-3 text-sm hindi-text">
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>सदस्य को समिति के उद्देश्यों के अनुकूल कार्य करना होगा।</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>सदस्यता शुल्क समय पर जमा करना आवश्यक है।</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>समिति की बैठकों में नियमित उपस्थिति आवश्यक है।</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>सामाजिक कार्यों में सक्रिय भागीदारी करनी होगी।</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>समिति के नियमों का उल्लंघन करने पर सदस्यता रद्द की जा सकती है।</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>व्यक्तिगत जानकारी में परिवर्तन की सूचना तुरंत देनी होगी।</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>समिति की गोपनीयता बनाए रखना आवश्यक है।</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-blue-100 rounded transition-colors">
+                        <span class="text-blue-600 mt-1 text-lg">•</span>
+                        <span>सदस्य आईडी कार्ड हमेशा साथ रखना चाहिए।</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- English Rules -->
+            <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-gray-500">
+                <h4 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                    <i class="fas fa-list-ul mr-2"></i>Rules & Terms:
+                </h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Members must work in accordance with the committee's objectives.</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Timely payment of membership fees is mandatory.</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Regular attendance at committee meetings is required.</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Active participation in social activities is expected.</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Membership may be cancelled for violation of committee rules.</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Any changes in personal information must be reported immediately.</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Committee confidentiality must be maintained.</span>
+                    </li>
+                    <li class="flex items-start gap-3 p-2 hover:bg-gray-100 rounded transition-colors">
+                        <span class="text-gray-600 mt-1 text-lg">•</span>
+                        <span>Member ID card should always be carried.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Application Form -->
+    <section class="form-section rounded-xl shadow-xl p-8 mb-12">
+        <h3 class="text-3xl font-bold text-center mb-8 hindi-text text-blue-900">
+            <i class="fas fa-user-plus mr-3 text-blue-600"></i>
+            सदस्यता आवेदन फॉर्म / Membership Application Form
+        </h3>
+        @using (Html.BeginForm("JoinUs", "Site", FormMethod.Post, new { @action = Url.Action("JoinUs"), enctype = "multipart/form-data", @id = "model-createedit-joiner" }))
+        {
+            @Html.AntiForgeryToken()
+            <form id="membershipForm" class="space-y-8">
+                <!-- Personal Information -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h4 class="text-lg font-semibold mb-4 text-blue-800 hindi-text border-b border-blue-200 pb-2">
+                        व्यक्तिगत जानकारी / Personal Information
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                              @Html.LabelFor(m => m.Name, new { @class = "block text - sm font - semibold mb - 2 hindi - text text - gray - 700" })
+                                @Html.TextBoxFor(m => m.Name, htmlAttributes: new { @class = "w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ", @placeholder = "Enter Name" })<!-- /.input group -->
+
+                           
+                        </div>
+                        <div>
+                                <label  class="block text-sm font-semibold mb-2 hindi-text text-gray-700">Father/Husband Name</label>
+                                @Html.TextBoxFor(m => m.GuardianName, htmlAttributes: new { @class = "w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ", @placeholder = "Enter Father/Husband Name" })<!-- /.input group -->
+                          
+                          
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6 mt-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-calendar mr-2 text-blue-600"></i>जन्मतिथि / Date of Birth *
+                            </label>
+                            <input type="date" id="dob" required
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-tint mr-2 text-red-600"></i>ब्लड ग्रुप / Blood Group
+                            </label>
+                            <select id="bloodGroup"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300">
+                                <option value="">चुनें / Select</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-user-tie mr-2 text-blue-600"></i>पदनाम / Designation
+                            </label>
+                            <select id="designation"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300">
+                                <option value="सदस्य">सदस्य / Member</option>
+                                <option value="सहायक सचिव">सहायक सचिव / Assistant Secretary</option>
+                                <option value="कोषाध्यक्ष">कोषाध्यक्ष / Treasurer</option>
+                                <option value="सचिव">सचिव / Secretary</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h4 class="text-lg font-semibold mb-4 text-blue-800 hindi-text border-b border-blue-200 pb-2">
+                        पता विवरण / Address Details
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-home mr-2 text-green-600"></i>ग्राम / Village *
+                            </label>
+                            <input type="text" id="village" required
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                   placeholder="अपना गांव का नाम">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-map-marker-alt mr-2 text-green-600"></i>पंचायत / Panchayat *
+                            </label>
+                            <input type="text" id="panchayat" required
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                   placeholder="पंचायत का नाम">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-city mr-2 text-green-600"></i>जिला / District *
+                            </label>
+                            <input type="text" id="district" value="झुंझुनूं" required
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-blue-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-mail-bulk mr-2 text-green-600"></i>पिनकोड / Pincode *
+                            </label>
+                            <input type="text" id="pincode" required pattern="[0-9]{6}"
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                   placeholder="6 अंकों का पिनकोड">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h4 class="text-lg font-semibold mb-4 text-blue-800 hindi-text border-b border-blue-200 pb-2">
+                        संपर्क विवरण / Contact Details
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                                @Html.LabelFor(m => m.MobileNumber, new { @class = "block text-sm font-semibold mb-2 hindi-text text-gray-700" })
+                                @Html.TextBoxFor(m => m.MobileNumber, htmlAttributes: new { @class = "w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ", @placeholder = "Enter MobileNumber" })<!-- /.input group -->
+                        
+                          
+                        </div>
+                        <div>
+                          
+                                @Html.LabelFor(m => m.AlternateMobileNumber, new { @class = "block text-sm font-semibold mb-2 hindi-text text-gray-700" })
+                                @Html.TextBoxFor(m => m.AlternateMobileNumber, htmlAttributes: new { @class = "w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ", @placeholder = "Alternate MobileNumber" })<!-- /.input group -->
+                          
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education and Experience -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h4 class="text-lg font-semibold mb-4 text-blue-800 hindi-text border-b border-blue-200 pb-2">
+                        शिक्षा व अनुभव / Education & Experience
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-graduation-cap mr-2 text-purple-600"></i>शिक्षा / Education *
+                            </label>
+                            <input type="text" id="education" required
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                   placeholder="अपनी शिक्षा का विवरण">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-briefcase mr-2 text-purple-600"></i>अनुभव (50 शब्दों में) / Experience (50 words)
+                            </label>
+                            <textarea id="experience" maxlength="250" rows="3"
+                                      class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                      placeholder="अपना कार्य अनुभव लिखें (अधिकतम 50 शब्द)"></textarea>
+                            <div class="text-xs text-gray-500 mt-1">
+                                <span id="wordCount">0</span>/50 शब्द
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Numbers -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h4 class="text-lg font-semibold mb-4 text-blue-800 hindi-text border-b border-blue-200 pb-2">
+                        दस्तावेज़ विवरण / Document Details
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-id-card mr-2 text-orange-600"></i>आधार नंबर / Aadhaar Number *
+                            </label>
+                            <input type="text" id="aadhaar" required pattern="[0-9]{12}"
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                   placeholder="12 अंकों का आधार नंबर">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-credit-card mr-2 text-orange-600"></i>पैन नंबर / PAN Number
+                            </label>
+                            <input type="text" id="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                                   placeholder="ABCDE1234F" style="text-transform: uppercase;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Uploads -->
+                <div class="bg-white rounded-lg p-6 shadow-md">
+                    <h4 class="text-lg font-semibold mb-4 text-blue-800 hindi-text border-b border-blue-200 pb-2">
+                        दस्तावेज़ अपलोड / Document Upload
+                    </h4>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-camera mr-2 text-blue-600"></i>फोटो / Photo *
+                            </label>
+                            <input type="file" id="photo" accept="image/*" required
+                                   class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400">
+                            <p class="text-xs text-gray-500 mt-1">पासपोर्ट साइज़ फोटो</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-signature mr-2 text-blue-600"></i>हस्ताक्षर / Signature *
+                            </label>
+                            <input type="file" id="signature" accept="image/*" required
+                                   class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400">
+                            <p class="text-xs text-gray-500 mt-1">साफ हस्ताक्षर</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 hindi-text text-gray-700">
+                                <i class="fas fa-fingerprint mr-2 text-blue-600"></i>अंगूठे का निशान / Thumb Impression
+                            </label>
+                            <input type="file" id="thumb" accept="image/*"
+                                   class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400">
+                            <p class="text-xs text-gray-500 mt-1">वैकल्पिक</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                    <button type="button" onclick="saveForm()"
+                            class="px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fas fa-save mr-2"></i>Save / सेव करें
+                    </button>
+                    <button type="submit"
+                            class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i>Submit / जमा करें
+                    </button>
+                    <button type="button" onclick="cancelForm()"
+                            class="px-8 py-4 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fas fa-times mr-2"></i>Cancel / रद्द करें
+                    </button>
+                </div>
+            </form>
+        }
+        </section>
+
+    <!-- Automatic Offer Letter Section -->
+    <section id="offerLetterSection" class="offer-letter rounded-xl shadow-xl p-8 mb-12 hidden">
+        <h3 class="text-3xl font-bold text-center mb-8 hindi-text text-blue-900">
+            <i class="fas fa-certificate mr-3 text-blue-600"></i>
+            स्वचालित प्रस्ताव पत्र / Automatic Offer Letter
+        </h3>
+
+        <div id="offerLetterCard" class="max-w-4xl mx-auto offer-letter-card p-8 border-2 border-blue-200 relative overflow-hidden">
+            <!-- Watermark -->
+            <div class="watermark hindi-text">अभिव्यक्ति</div>
+            <!-- Letter Header -->
+            <div class="text-center mb-8 border-b-2 border-blue-100 pb-6">
+                <div class="flex items-center justify-center gap-6 mb-4">
+                    <img src="images/logo.png" alt="Abhivyakti Foundation Logo" class="w-20 h-20 object-contain">
+                    <div>
+                        <h4 class="text-3xl font-bold text-blue-900 hindi-text">अभिव्यक्ति सेवा समिति</h4>
+                        <p class="text-lg text-blue-700 hindi-text">झुंझुनूं (राजस्थान)</p>
+                        <p class="text-sm text-gray-600">Abhivyakti Seva Samiti Jhunjhunu</p>
+                    </div>
+                    <img src="images/logo.png" alt="Abhivyakti Foundation Logo" class="w-20 h-20 object-contain">
+                </div>
+                <div class="w-32 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto"></div>
+            </div>
+
+            <!-- Letter Content -->
+            <div class="space-y-6 text-gray-800 relative z-10">
+                <div class="text-right hindi-text">
+                    <p class="text-sm">दिनांक: <span id="letterDate" class="font-semibold"></span></p>
+                </div>
+
+                <div class="hindi-text">
+                    <p class="text-xl font-semibold">प्रिय <span id="letterName" class="text-blue-700 underline"></span> जी,</p>
+                    <p class="text-lg mt-2">सादर नमस्कार!</p>
+                </div>
+
+                <div class="hindi-text leading-relaxed space-y-4">
+                    <p class="text-lg"><strong>विषय: सदस्यता स्वीकृति पत्र</strong></p>
+
+                    <p>हमें यह सूचित करते हुए अत्यंत प्रसन्नता हो रही है कि आपका सदस्यता आवेदन स्वीकार कर लिया गया है। आप अब <strong>अभिव्यक्ति सेवा समिति झुंझुनूं</strong> के सम्मानित सदस्य हैं।</p>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-500 shadow-md">
+                        <p class="text-lg font-semibold text-blue-800 mb-3">
+                            <i class="fas fa-user-check mr-2"></i>आपका सदस्य विवरण:
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-user text-blue-600"></i>
+                                    <strong>नाम:</strong> <span id="letterMemberName" class="text-blue-700"></span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-id-badge text-blue-600"></i>
+                                    <strong>सदस्य कोड:</strong> <span id="letterMemberCode" class="text-blue-700 font-bold font-mono"></span>
+                                </li>
+                            </ul>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-user-tie text-blue-600"></i>
+                                    <strong>पदनाम:</strong> <span id="letterDesignation" class="text-blue-700"></span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-calendar-check text-blue-600"></i>
+                                    <strong>जॉइनिंग दिनांक:</strong> <span id="letterJoiningDate" class="text-blue-700"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p>आपसे अनुरोध है कि समिति के नियमों का पालन करते हुए सामाजिक कार्यों में सक्रिय भागीदारी करें। आपकी सदस्यता के साथ आपको निम्नलिखित सुविधाएं प्राप्त होंगी:</p>
+
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <ul class="grid md:grid-cols-2 gap-2 text-sm">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <span>समिति की सभी गतिविधियों में भागीदारी का अधिकार</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <span>सामाजिक कार्यक्रमों में प्राथमिकता</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <span>आपातकालीन सहायता की सुविधा</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <span>कौशल विकास कार्यक्रमों में भागीदारी</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>कृपया अपना सदस्य आईडी कार्ड कार्यालय से प्राप्त करें और इसे हमेशा अपने साथ रखें।</p>
+
+                    <p class="font-semibold">समिति की ओर से आपका हार्दिक स्वागत है।</p>
+                </div>
+
+                <!-- Signature Section -->
+                <div class="flex justify-between items-end mt-12 pt-8 border-t border-gray-200">
+                    <div class="hindi-text">
+                        <p class="text-lg">सधन्यवाद,</p>
+                        <p class="text-sm text-gray-600 mt-2">आपका विश्वासपात्र</p>
+                    </div>
+                    <div class="text-center hindi-text">
+                        <div class="w-32 h-16 border-b-2 border-gray-400 mb-2 flex items-end justify-center">
+                            <span class="text-xs text-gray-500 mb-1">हस्ताक्षर</span>
+                        </div>
+                        <p class="font-semibold text-blue-800">सचिव</p>
+                        <p class="text-sm">अभिव्यक्ति सेवा समिति</p>
+                        <p class="text-sm">झुंझुनूं (राजस्थान)</p>
+                    </div>
+                </div>
+
+                <!-- Footer Message -->
+                <div class="text-center mt-8 p-6 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-xl border-2 border-blue-200 shadow-lg">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <i class="fas fa-hands-helping text-2xl text-blue-600"></i>
+                        <p class="text-xl font-bold text-blue-800 hindi-text">
+                            🙏 अभिव्यक्ति सेवा समिति झुंझुनूं की ओर से हार्दिक शुभकामनाएं 🙏
+                        </p>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2 italic">
+                        "सेवा ही धर्म है" - Heartfelt wishes from Abhivyakti Seva Samiti Jhunjhunu
+                    </p>
+                    <div class="flex items-center justify-center gap-4 mt-4 text-xs text-gray-500">
+                        <span><i class="fas fa-phone mr-1"></i>+91-XXXXXXXXXX</span>
+                        <span><i class="fas fa-envelope mr-1"></i>info@abhivyakti.org</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button - Outside the card -->
+        <div class="text-center mt-8 no-print">
+            <button onclick="downloadOfferLetter()"
+                    class="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <i class="fas fa-download mr-2"></i>डाउनलोड करें / Download
+            </button>
+        </div>
+    </section>
+</div>
+
+<section class="content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-danger">
+                <div class="box-header">
+                    Apply Now
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="validation-summary">
+                @Html.Partial("_Notification")
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@using (Html.BeginForm("JoinUs", "Site", FormMethod.Post, new { @action = Url.Action("JoinUs"), enctype = "multipart/form-data", @id = "model-createedit-joiner" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="box">
+                    <div class="box-header">
+                    </div>
+                    <div class="box-body">
+
+                        <div class="col-md-6">
+                            <div class="box box-danger">
+                                <div class="box-header">
+                                    <h3 class="box-title">Join Us</h3>
+                                </div>
+                                <span id="get-blocks-url" data-url="@Url.Action("GetBlocksByDistrict", "Site")"></span>
+                                <span id="get-grams-url" data-url="@Url.Action("GetGramPanchayatsByBlock", "Site")"></span>
+
+                                <div class="box-body">
+
+                                  
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.DistrictId, new { @class = "control-label" })
+                                        @Html.DropDownListFor(m => m.DistrictId, new SelectList(ViewBag.DistrictList, "Value", "Text", @Model.DistrictId), "Select a District", new { @class = "form-control select2" })
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.BlockId, new { @class = "control-label" })
+                                        @Html.DropDownListFor(m => m.BlockId, new SelectList(ViewBag.BlockList, "Value", "Text", @Model.BlockId), "Select a Block", new { @class = "form-control select2" })
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.GramPanchayatId, new { @class = "control-label" })
+                                        @Html.DropDownListFor(m => m.GramPanchayatId, new SelectList(ViewBag.BlockList, "Value", "Text", @Model.GramPanchayatId), "Select a GramPanchayat", new { @class = "form-control select2" })
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.Village, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.Village, htmlAttributes: new { @class = "form-control ", @placeholder = "Enter VillageName" })<!-- /.input group -->
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.PinCode, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.PinCode, htmlAttributes: new { @class = "form-control ", @placeholder = "Enter PinCode" })<!-- /.input group -->
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.FullAddress, new { @class = "control-label" })
+                                        @Html.TextAreaFor(m => m.FullAddress, htmlAttributes: new { @class = "form-control ", @placeholder = "Enter FullAddress" })<!-- /.input group -->
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.Education, new { @class = "control-label" })
+                                        @Html.TextAreaFor(m => m.Education, htmlAttributes: new { @class = "form-control ", @placeholder = "Enter Education" })<!-- /.input group -->
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.AadharNumber, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.AadharNumber, htmlAttributes: new { @class = "form-control ", @placeholder = "Enter AadharNumber" })<!-- /.input group -->
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.PanNumber, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.PanNumber, htmlAttributes: new { @class = "form-control ", @placeholder = "Enter PanNumber" })<!-- /.input group -->
+                                    </div>
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.DOB, new { @class = "control-label" })
+                                        @Html.TextBoxFor(m => m.DOB, htmlAttributes: new { @class = "form-control ", @placeholder = "Select DOB" })<!-- /.input group -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="btn-mar pull-right">
+                            <button type="submit" class="btn btn-block btn-success">Submit <i class="fa fa-arrow-circle-right"></i></button>
+                        </div>
+                        @*<div class="btn-mar pull-right">
+                                <a class="btn btn-block btn-default" href="@Url.Action("index")"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/datepicker", "~/bundles/select2", "~/Scripts/global.js", "~/Scripts/Custom/Site/JoinUs.js?ver=1.01")
+    @Scripts.Render("~/Scripts/plugins/alertifyjs/alertify.min.js")
+}

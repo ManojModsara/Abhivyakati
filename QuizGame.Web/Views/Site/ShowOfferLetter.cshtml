@@ -1,0 +1,15 @@
+﻿@model QuizGame.Web.Models.OfferLetterViewModel
+
+@{
+    ViewBag.Title = "Offer Letter";
+    //Layout = "~/Views/Shared/_LayoutFront.cshtml";
+}
+
+<h2>Thank you, @Model.Name!</h2>
+<p>Your offer letter has been generated successfully.</p>
+
+<a href="@Url.Action("DownloadOfferLetter", "Site", new { name = Model.Name, uniqueId = Model.UniqueId })" class="btn btn-success">
+    Download Offer Letter
+</a>
+
+

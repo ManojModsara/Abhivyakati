@@ -1,0 +1,66 @@
+﻿@model QuizGame.Dto.ImageUploadDto
+
+@{
+    ViewBag.Title = "AddPhotoGalleryImages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/select2/select2-bootstrap.css", "~/Content/select2/select2.css", "~/Scripts/plugins/alertifyjs/css/alertify.min.css")
+
+@using (Html.BeginForm("AddPhotoGalleryImages", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="content-header">
+        <h1>
+            Upload PhotoGallery Images
+        </h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("_Notification")
+                <div id="validation-summary">
+
+                </div>
+                <div class="box">
+                    <div class="box-header">
+                    </div>
+                    <div class="box-body">
+
+                        <div class="col-md-6">
+                            <div class="box box-danger">
+                                <div class="box-header">
+                                    <h3 class="box-title">Upload Images</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group required">
+                                        @Html.LabelFor(m => m.Files, new { @class = "control-label" })
+                                        @Html.TextBox("Files", null, new { type = "file", multiple = "multiple", accept = ".jpg,.jpeg,.png", @class = "form-control" })
+                                        <small class="form-text text-muted">Max size: 1MB. Allowed formats: .jpg, .jpeg, .png</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="btn-mar pull-right">
+                            <button class="btn btn-block btn-success" type="submit">Submit <i class="fa fa-arrow-circle-right"></i></button>
+                        </div>
+                        <div class="btn-mar pull-right">
+                            <a class="btn btn-block btn-default" href="@Url.Action("PhotoGallery")"><i class="fa fa-arrow-circle-left"></i> Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/plugins/alertifyjs/alertify.min.js")
+}

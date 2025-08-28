@@ -1,0 +1,78 @@
+﻿@model List<QuizGame.Dto.BlogDto>
+
+<style>
+    .news-card {
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+    .news-img img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid #eee;
+    }
+
+    .title-p-tag {
+        padding: 15px;
+        flex-grow: 1;
+    }
+
+        .title-p-tag h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .title-p-tag p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            min-height: 45px;
+        }
+
+    .news-time {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 13px;
+        color: #999;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4 col-sm-12 mb-4">
+        <div class="news-card">
+            <div class="news-img">
+                <img loading="lazy" src="@item.ShowImg" height="100" alt="@item.Title" />
+            </div>
+            <div class="title-p-tag">
+                <h3>@item.Title</h3>
+                <p class="fixtext">@item.ShortDescription</p>
+                <p class="fixtext">
+                    @Html.Raw(item.Description)
+                </p>
+                <ul class="news-time">
+                    <li>@item.BlogDate</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+

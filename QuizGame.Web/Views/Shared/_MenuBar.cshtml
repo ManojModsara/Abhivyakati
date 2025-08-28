@@ -1,0 +1,68 @@
+﻿@model List<QuizGame.Data.Menu>
+@using QuizGame.Web.Code.LIBS
+
+
+<div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+        @foreach (var item in Model.FindAll(m => m.ParentId == null && m.IsActive == true))
+        {
+            var childs = Model.Where(c => c.ParentId == item.Id && c.IsActive == true);
+            if (childs.Count() > 0)
+            {
+                <li class="dropdown" id="@item.Id">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="@item.IconClass"></i>
+                        <span>@item.Name</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach (var child in childs)
+                        {
+                            <li id="@child.MenuId">
+                                <a href="@(SiteKey.DomainName + child.Url)"><i class="@child.IconClass"></i>@child.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                if (item.Url != null)
+                {
+                    <li class="" id="@item.Id">
+                        <a href="@(SiteKey.DomainName + item.Url)">
+                            <i class="@item.IconClass"></i><span>@item.Name</span>
+                        </a>
+                    </li>
+                }
+            }
+
+        }
+
+
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <span style="color:white;" class="btn btn-success" title="Click to refresh" onclick="return balancecheck();">
+                        &#x20b9;
+                        <i id="balancec">@ViewBag.Balance</i>
+                    </span>
+                </div>
+            </div>
+        </li>
+        <li class="dropdown" id="@(CurrentUser.UserName)">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span>@(CurrentUser.UserName)</span>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li id="">
+                    <a href="@Url.Action("logout", "account")"><i class="glyphicon glyphicon-log-out"></i>Sign Out</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

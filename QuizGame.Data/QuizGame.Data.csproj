@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A962F5A-9858-4976-A513-3809F7C63D7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuizGame.Data</RootNamespace>
+    <AssemblyName>QuizGame.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityLog.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AddMember.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AddReminderDetail.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmtType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApiSource.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BankAccount.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BankStatement.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Block.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactU.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="District.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailAPI.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmiForReminder.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Event.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelData.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EZSMdbEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EZSMdbEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EZSMdbEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EZSMdbEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EZSMdbEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FilterRule.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GramPanchayat.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JoinU.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KYCDistrictList.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KYCDocument.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KYCStateList.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapMenuToRole.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrgType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OtherPaymentReminder.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParentUserDataList.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentStatu.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoGallery.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReminderPaymentType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReminderSetting.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReminderSettingMember.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RuleList.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SentReminderData.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="server.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerPaymentReminder.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SetReminder.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoftwareType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StateList.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatusType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ticket.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransferType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxnType.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendorUserList.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhatsAppApi.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zone.cs">
+      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="EZSMdbEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EZSMdbEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EZSMdbEntities.edmx.diagram">
+      <DependentUpon>EZSMdbEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EZSMdbEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EZSMdbEntities.edmx</DependentUpon>
+      <LastGenOutput>EZSMdbEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EZSMdbEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EZSMdbEntities.edmx</DependentUpon>
+      <LastGenOutput>EZSMdbEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

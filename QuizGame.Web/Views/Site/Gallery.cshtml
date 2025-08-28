@@ -1,0 +1,56 @@
+﻿@using QuizGame.Data;
+@model List<PhotoGallery>
+@{
+    Layout = "~/Views/Shared/_LayoutFront.cshtml";
+}
+
+<!-- Hero Section -->
+<section class="py-20 mt-20 bg-gradient-to-br from-[#00A7B5] via-[#00D2A8] to-[#00D2A8] relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-lime-800/50 to-green-800/50"></div>
+    <div class="container mx-auto px-4 text-center relative z-5">
+        <div class="flex flex-col items-center justify-center animate-fadeIn">
+            <div class="relative mb-6">
+                <div class="absolute inset-0 bg-lime-300/20 shadow-2xl border-4 border-lime-300/30  rounded-full blur-xl scale-110">
+                </div>
+                <img src="~/Images/logo-white.png" alt="abhivyakti  Care Foundation" class="w-28 h-28 relative z-5 ">
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-white ">
+                अभिव्यक्ति फाउंडेशन
+            </h1>
+            <p class="text-lg sm:text-xl text-lime-100 max-w-2xl leading-relaxed">
+                A visual journey of our humanitarian efforts and inspiring moments
+            </p>
+            <div class="mt-8 w-24 h-1 bg-gradient-to-r from-lime-400 to-green-400 rounded-full"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50 to-lime-50/30">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Our Gallery</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Capturing moments that matter, stories that inspire</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            @foreach (var ev in Model)
+            {
+                if (!string.IsNullOrEmpty(ev.ImageURL))
+                {
+                    <div class="gallery-item animate-fadeIn group cursor-pointer card-gradient"
+                         onclick="openMediaModal('@ev.ImageURL', 'image')">
+                        <div class="media-wrapper">
+                            <img src="@ev.ImageURL" loading="lazy" alt="NGO Activity">
+                            <div class="gallery-overlay">
+                                <svg class="gallery-icon" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,540 @@
+﻿@using QuizGame.Web.Code.LIBS
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title  -home</title>
+    <link rel="icon" href="" type="image/png">
+    <!-- Basic -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="~/assets3/css/bootstrap.css" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- font awesome style -->
+    <link href="~/assets3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/assets2/css/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom ~/assets3/styles for this template -->
+    <link href="~/assets3/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/assets3/css/responsive.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+    @RenderSection("head", false)
+
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&family=Arya:wght@400;700&family=Bakbak+One&family=Baloo+Paaji+2:wght@400..800&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Dekko&family=Jaini&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-3">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="Site/Index">
+                        <img class="h-20" src="~/Images/logo.png" alt="">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="Site/Index"
+                       class="nav-link text-gray-700 hover:text-teal-600 transition-colors active">Home</a>
+                    <div class="relative group">
+                        <button type="button"
+                                class="nav-link text-gray-700 hover:text-teal-600 transition-colors flex items-center space-x-1"
+                                onclick="toggleMegaMenu()">
+                            <span>Aims</span>
+                            <i class="fas fa-chevron-down text-xs transition-transform duration-300"
+                               id="megaMenuIcon"></i>
+                        </button>
+                    </div>
+                    <a href="Site/About" class="nav-link text-gray-700 hover:text-teal-600 transition-colors">
+                        About
+                        Us
+                    </a>
+                    <a href="Site/Gallery"
+                       class="nav-link text-gray-700 hover:text-teal-600 transition-colors">Gallery</a>
+                    <a href="Site/Contact"
+                       class="nav-link text-gray-700 hover:text-teal-600 transition-colors">Contact</a>
+                    <a href="Site/blog" class="nav-link text-gray-700 hover:text-teal-600 transition-colors">Blog</a>
+                    <a href="Site/Event"
+                       class="nav-link text-gray-700 hover:text-teal-600 transition-colors">Events</a>
+                    <a href="join-us.html" class="nav-link text-gray-700 hover:text-teal-600 transition-colors">
+                        Join
+                        Us
+                    </a>
+                    <a href="Site/Donate" class="donate-btn text-white px-6 py-2 rounded-full font-medium">
+                        <i class="fas fa-heart mr-2"></i>Donate Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button class="text-gray-700 hover:text-teal-600 transition-colors" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mega Menu Overlay -->
+        <div class="mega-menu-overlay" id="megaMenuOverlay" onclick="closeMegaMenu()"></div>
+
+        <!-- Full Width Mega Menu -->
+        <div class="mega-menu absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-50"
+             id="megaMenu">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    <!-- Column 1: About Us -->
+                    <div class="mega-menu-column">
+                        <div class="space-y-2 flex flex-col">
+                            <a href="aims.html#env" class="mega-menu-item hindi-text">
+                                <i class="fas fa-leaf text-teal-500 mr-3"></i>पर्यावरण संरक्षण
+                            </a>
+                            <a href="aims.html#blood" class="mega-menu-item hindi-text">
+                                <i class="fas fa-tint text-teal-500 mr-3"></i>रक्तदान
+                            </a>
+                            <a href="aims.html#child" class="mega-menu-item hindi-text">
+                                <i class="fas fa-child text-teal-500 mr-3"></i>बाल-श्रम पर रोकथाम
+                            </a>
+                            <a href="aims.html#bonded" class="mega-menu-item hindi-text">
+                                <i class="fas fa-user-lock text-teal-500 mr-3"></i>बंधुआ-मजदूरी
+                            </a>
+                            <a href="aims.html#oldage" class="mega-menu-item hindi-text">
+                                <i class="fas fa-blind text-teal-500 mr-3"></i>वृद्धाश्रम
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Programs -->
+                    <div class="mega-menu-column">
+                        <div class="space-y-2 flex flex-col">
+                            <!-- Hindi Topics Start -->
+                            <a href="aims.html#women" class="mega-menu-item hindi-text">
+                                <i class="fas fa-female text-teal-500 mr-3"></i>महिला सुरक्षा
+                            </a>
+                            <a href="aims.html#cow" class="mega-menu-item hindi-text">
+                                <i class="fas fa-cow text-teal-500 mr-3"></i>गौ-सेवा एवं रक्षा
+                            </a>
+                            <a href="aims.html#addiction" class="mega-menu-item hindi-text">
+                                <i class="fas fa-ban text-teal-500 mr-3"></i>नशा-मुक्ति पर रोकथाम
+                            </a>
+                            <a href="aims.html#swachh" class="mega-menu-item hindi-text">
+                                <i class="fas fa-broom text-teal-500 mr-3"></i>स्वच्छ भारत
+                            </a>
+                            <a href="aims.html#evils" class="mega-menu-item hindi-text">
+                                <i class="fas fa-gavel text-teal-500 mr-3"></i>सामाजिक कुरीतियों का विरोध
+                            </a>
+                            <a href="aims.html#khadi" class="mega-menu-item hindi-text">
+                                <i class="fas fa-tractor text-teal-500 mr-3"></i>खादी एवं ग्रामोद्योग को बढ़ावा
+                                देना
+                            </a>
+                            <!-- Hindi Topics End -->
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Services -->
+                    <div class="mega-menu-column">
+                        <div class="space-y-2 flex flex-col">
+                            <a href="aims.html#education" class="mega-menu-item hindi-text">
+                                <i class="fas fa-book text-teal-500 mr-3"></i>शिक्षा जागृति एवं सहयोग
+                            </a>
+                            <a href="aims.html#road" class="mega-menu-item hindi-text">
+                                <i class="fas fa-road text-teal-500 mr-3"></i>सड़क दुर्घटना एवं सुरक्षा
+                            </a>
+                            <a href="aims.html#caste" class="mega-menu-item hindi-text">
+                                <i class="fas fa-users text-teal-500 mr-3"></i>जातिवाद
+                            </a>
+                            <a href="aims.html#dowry" class="mega-menu-item hindi-text">
+                                <i class="fas fa-gift text-teal-500 mr-3"></i>दहेज प्रथा
+                            </a>
+                            <a href="aims.html#mrityu" class="mega-menu-item hindi-text">
+                                <i class="fas fa-utensils text-teal-500 mr-3"></i>मृत्यु भोज
+                            </a>
+                            <a href="aims.html#ayurveda" class="mega-menu-item hindi-text">
+                                <i class="fas fa-leaf text-teal-500 mr-3"></i>स्वदेशी प्राकृतिक आयुर्वेद
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Column 4: Resources -->
+                    <div class="mega-menu-column">
+                        <div class="space-y-2 flex flex-col">
+                            <a href="aims.html#kanya" class="mega-menu-item hindi-text">
+                                <i class="fas fa-child text-teal-500 mr-3"></i>कन्या विवाह सहयोग
+                            </a>
+                            <a href="aims.html#water" class="mega-menu-item hindi-text">
+                                <i class="fas fa-tint text-teal-500 mr-3"></i>जल संरक्षण
+                            </a>
+                            <a href="aims.html#skill" class="mega-menu-item hindi-text">
+                                <i class="fas fa-tools text-teal-500 mr-3"></i>स्किल डेवलपमेंट
+                            </a>
+                            <a href="aims.html#employment" class="mega-menu-item hindi-text">
+                                <i class="fas fa-briefcase text-teal-500 mr-3"></i>स्वरोजगार
+                            </a>
+                            <a href="aims.html#sports" class="mega-menu-item hindi-text">
+                                <i class="fas fa-futbol text-teal-500 mr-3"></i>खेल कूद को बढ़ावा देना
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu lg:hidden fixed top-0 left-0 h-[100dvh] w-64 bg-white shadow-2xl z-50 rounded-lg"
+             id="mobileMenu">
+            <div class="p-6 h-full flex flex-col overflow-y-auto">
+                <div class="flex items-center justify-between mb-8">
+                    <a href="Site/Index">
+                        <img class="h-14" src="images/logo.png" alt="">
+                    </a>
+                    <button class="text-gray-600 hover:text-teal-600" onclick="toggleMobileMenu()">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <nav class="space-y-4 flex-1">
+                    <a href="Site/Index" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Home</a>
+                    <div class="py-2">
+                        <button class="w-full text-left text-gray-700 hover:text-teal-600 transition-colors flex items-center justify-between"
+                                onclick="toggleMobileAccordion()">
+                            <span>Aims</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"
+                               id="mobileAccordionIcon"></i>
+                        </button>
+                        <div class="accordion-content mt-2 ml-4 space-y-2" id="mobileAccordionContent">
+                            <a href="aims.html#env"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-leaf mr-2"></i>पर्यावरण संरक्षण
+                            </a>
+                            <a href="aims.html#blood"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-tint mr-2"></i>रक्तदान
+                            </a>
+                            <a href="aims.html#child"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-child mr-2"></i>बाल-श्रम पर रोकथाम
+                            </a>
+                            <a href="aims.html#bonded"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-user-lock mr-2"></i>बंधुआ-मजदूरी
+                            </a>
+                            <a href="aims.html#oldage"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-blind mr-2"></i>वृद्धाश्रम
+                            </a>
+                            <a href="aims.html#women"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-female mr-2"></i>महिला सुरक्षा
+                            </a>
+                            <a href="aims.html#cow"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-cow mr-2"></i>गौ-सेवा एवं रक्षा
+                            </a>
+                            <a href="aims.html#addiction"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-ban mr-2"></i>नशा-मुक्ति पर रोकथाम
+                            </a>
+                            <a href="aims.html#swachh"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-broom mr-2"></i>स्वच्छ भारत
+                            </a>
+                            <a href="aims.html#evils"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-gavel mr-2"></i>सामाजिक कुरीतियों का विरोध
+                            </a>
+                            <a href="aims.html#khadi"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-tractor mr-2"></i>खादी एवं ग्रामोद्योग को बढ़ावा देना
+                            </a>
+                            <a href="aims.html#education"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-book mr-2"></i>शिक्षा जागृति एवं सहयोग
+                            </a>
+                            <a href="aims.html#road"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-road mr-2"></i>सड़क दुर्घटना एवं सुरक्षा
+                            </a>
+                            <a href="aims.html#caste"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-users mr-2"></i>जातिवाद
+                            </a>
+                            <a href="aims.html#dowry"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-gift mr-2"></i>दहेज प्रथा
+                            </a>
+                            <a href="aims.html#mrityu"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-utensils mr-2"></i>मृत्यु भोज
+                            </a>
+                            <a href="aims.html#ayurveda"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-leaf mr-2"></i>स्वदेशी प्राकृतिक आयुर्वेद
+                            </a>
+                            <a href="aims.html#kanya"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-child mr-2"></i>कन्या विवाह सहयोग
+                            </a>
+                            <a href="aims.html#water"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-tint mr-2"></i>जल संरक्षण
+                            </a>
+                            <a href="aims.html#skill"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-tools mr-2"></i>स्किल डेवलपमेंट
+                            </a>
+                            <a href="aims.html#employment"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-briefcase mr-2"></i>स्वरोजगार
+                            </a>
+                            <a href="aims.html#sports"
+                               class="block py-1 text-sm text-gray-600 hover:text-teal-600 hindi-text">
+                                <i class="fas fa-futbol mr-2"></i>खेल कूद को बढ़ावा देना
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#programs"
+                       class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Programs</a>
+                    <a href="#gallery"
+                       class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Gallery</a>
+                    <a href="#contact"
+                       class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Contact</a>
+                    <a href="Site/blog" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Blog</a>
+                    <a href="Site/Event"
+                       class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">Events</a>
+                    <a href="join-us.html" class="block py-2 text-gray-700 hover:text-teal-600 transition-colors">
+                        Join
+                        Us
+                    </a>
+                    <a href="Site/Donate"
+                       class="donate-btn text-white px-6 py-2 rounded-full font-medium w-full mt-4 text-center">
+                        <i class="fas fa-heart mr-2"></i>Donate Now
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    <!-- footer -->
+    <footer class="footer bg-cyan-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none bg-[url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22grain%22 width=%22100%22 height=%22100%22 patternUnits=%22userSpaceOnUse%22><circle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22white%22 opacity=%220.1%22/><circle cx=%2280%22 cy=%2240%22 r=%221%22 fill=%22white%22 opacity=%220.1%22/><circle cx=%2240%22 cy=%2280%22 r=%221%22 fill=%22white%22 opacity=%220.1%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23grain)%22/></svg>')]">
+        </div>
+
+        <div class="footer-content relative z-5 max-w-7xl mx-auto px-4 pt-12">
+            <div class="footer-top grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-8 gap-y-6 mb-8 items-stretch">
+
+                <!-- Brand Section -->
+                <div class="flex flex-col h-full lg:col-span-4 md:col-span-6">
+                    <a href="{{ route('home') }}"
+                       class="text-green-900 text-xl font-extrabold flex items-center gap-3 mb-6">
+                        <img src="~/Images/logo-white.png" alt="Logo" class="w-20 h-auto">
+                    </a>
+                    <p class="text-white/80 leading-relaxed mb-4">
+                        Dedicated to creating positive change in society through education, healthcare, and community
+                        development initiatives. Join us in making a difference.
+                    </p>
+                    <div class="flex gap-4 mt-6">
+                        <!-- Facebook -->
+                        <a href="#" target="_blank"
+                           class="hover:scale-110 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="#" target="_blank"
+                           class="hover:scale-110 w-10 h-10 bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 text-white rounded-full flex items-center justify-center hover:opacity-90 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <!-- Twitter -->
+                        <a href="#" target="_blank"
+                           class="hover:scale-110 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:opacity-90 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="#" target="_blank"
+                           class="w-10 h-10 bg-[#25d366] text-white rounded-full flex items-center justify-center hover:scale-110 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="flex flex-col h-full lg:col-span-2 md:col-span-3">
+                    <h3 class="text-white text-lg font-bold mb-4 border-b-2 border-cyan-300 inline-block pb-1">
+                        Quick
+                        Links
+                    </h3>
+                    <ul class="flex flex-col gap-3">
+                        <li>
+                            <a href="Site/Index"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-home w-4 opacity-60"></i> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="aims.html"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-bullseye w-4 opacity-60"></i> Aims
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Site/About"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-users w-4 opacity-60"></i> About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Site/Gallery"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-images w-4 opacity-60"></i> Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Site/Contact"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-envelope w-4 opacity-60"></i> Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="flex flex-col h-full lg:col-span-2 md:col-span-3">
+                    <h3 class="text-white text-lg font-bold mb-4 border-b-2 border-cyan-300 inline-block pb-1">
+                        Resources
+                    </h3>
+                    <ul class="flex flex-col gap-3">
+                        <li>
+                            <a href="Site/blog"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-blog w-4 opacity-60"></i> Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Site/Event"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-calendar w-4 opacity-60"></i> Events
+                            </a>
+                        </li>
+                        <li>
+                            <a href="join-us.html"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-user-plus w-4 opacity-60"></i> Join Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Site/Gallery"
+                               class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                                <i class="fas fa-images w-4 opacity-60"></i> Gallery
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="flex flex-col h-full lg:col-span-4 md:col-span-6">
+                    <h3 class="text-white text-lg font-bold mb-4 border-b-2 border-cyan-300 inline-block pb-1">
+                        Get in
+                        Touch
+                    </h3>
+                    <div class="flex flex-col gap-4 text-white/80">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <strong>Phone</strong><br> +91 1234567890
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <strong>Email</strong><br> abhivyaktifoundation@gmail.com
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <strong>Address</strong><br> abhivyakti Foundation
+
+                                jaipur, rajasthan 12345
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 py-6 text-center text-white/70 text-sm flex flex-col md:flex-row justify-center items-center gap-4">
+                <p>© 2025 Abhivyakti Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--gallery image view Modal -->
+    <div id="media-modal"
+         class="fixed inset-0 modal-backdrop z-50 hidden items-center justify-center px-4 transition-all duration-300">
+        <div id="media-container"
+             class="rounded-lg	 relative modal-content bg-white shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 animate-scaleIn">
+            <div class="absolute top-2 right-2 z-20">
+                <button onclick="closeMediaModal()"
+                        class="text-white hover:text-red-400 bg-black/50 hover:bg-red-500/50 rounded-full p-1 transition-all duration-200 hover:scale-110 backdrop-blur-sm">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="media-content" class="w-full h-full flex justify-center items-center rounded-md">
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+    @*@Scripts.Render("~/Scripts/jquery-3.4.1.js", "~/Scripts/bootstrap.min.js", "~/Content/plugins/iCheck/icheck.min.js", "~/Scripts/global.js")*@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/assets2/js/bootstrap.min.js"></script>
+    <script src="~/assets2/jquery/jquery.min.js"></script>
+
+    <script src="~/assets/js/crawler.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script>
+        function myFunction(x) {
+            x.classList.toggle("change");
+        }
+    </script>
+
+</body>
+</html>

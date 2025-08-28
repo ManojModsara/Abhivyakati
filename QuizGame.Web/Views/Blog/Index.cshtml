@@ -1,0 +1,131 @@
+﻿@model List<QuizGame.Dto.BlogDto>
+@using QuizGame.Dto;
+@using QuizGame.Web.LIBS;
+@{
+    ViewBag.Title = "BlogList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/bundles/css/select2")
+@Styles.Render("~/datatables/css", "~/Content/css/bootstrap-switch.css", "~/Scripts/plugins/alertifyjs/css/alertify.min.css")
+
+<style>
+    .mt-4 {
+        margin-top: 20px;
+    }
+</style>
+
+
+<section class="content-header">
+    <link href="~/Content/all-internal-css/CommonSwitch/Index.css" rel="stylesheet" />
+
+</section>
+<section class="content">
+    <div id="loading-wrapper" class="test55">
+        <div id="loading-text">Wait...</div>
+        <div id="loading-content"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="validation-summary">
+                @Html.Partial("_Notification")
+            </div>
+            <div class="box">
+                @{
+                    ActionAllowedDto act = (ActionAllowedDto)ViewBag.actionAllowed;
+                    if (act.AllowCreate)
+                    {
+                        @(Html.Raw(Html.InsertButton(Url.Action("AddBlog", "Blog"))))
+                    }
+                }
+
+                <div class="box-header mt-4">
+                    <h3 class="box-title">Blog List</h3>
+                </div>
+                <div class="box-body table table-responsive">
+                    <div class="col-md-12">
+                        <div class="box box-danger">
+                            <table id="tblIndex" class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th style="display:none"></th>
+                                        <th>Action</th>
+                                        <th>Title</th>
+                                        <th style="min-width:90px;">Url</th>
+                                        <th>Image</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Count > 0)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td style="display:none">@item.ID</td>
+                                                <td style="padding:1px;">
+                                                    <a title="Edit" href='@Url.Action("AddBlog","Blog",new { id=item.ID})' class='btn btn-success'><i class='fa fa-edit'></i></a>
+                                                    <input type="button" value="x" title="Remove" class="btn btn-danger  grid-btn btn-sm" onclick="Remove(this)" />
+                                                    <input title='@(item.ActiveUpdatedBy+" "+item.ActiveUpdatedOn)' type="checkbox" @(item.IsActive ? "checked='checked'" : "") class="switchBox switch-small simple" value="@item.ID" />
+
+                                                </td>
+                                                <td> @item.Title </td>
+                                                <td>@item.Url</td>
+                                                <td><img src="@item.ShowImg" style="height:3em;" /></td>
+                                            </tr>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td>No Data Found!</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    function Remove(button) {
+        var row = $(button).closest("TR");
+        var id = $("TD", row).eq(0).html();
+        if (confirm("Do you want to delete: " + id)) {
+
+            if (id > 0) {
+                $.post(Global.DomainName + 'Blog/DeleteRoute', { Id: id }, function (result) {
+                    if (!result) {
+                        alertify.error("Internal Error. Something went wrong.");
+                    }
+                    else {
+                        var table = $("#tblIndex")[0];
+                        table.deleteRow(row[0].rowIndex);
+                        alertify.success("Deleted!");
+                    }
+                });
+            }
+            else {
+                var table = $("#tblIndex")[0];
+                table.deleteRow(row[0].rowIndex);
+                alertify.success("Deleted!");
+            }
+
+
+        }
+    }
+
+</script>
+@section scripts{
+    @Scripts.Render("~/bundles/datatables", "~/bundles/jqueryval", "~/bundles/datepicker", "~/bundles/select2", "~/Scripts/global.js", "~/Scripts/Custom/Blog/BlogList.js?ver=1.1")
+    @Scripts.Render("~/Scripts/plugins/alertifyjs/alertify.min.js")
+}
+
+

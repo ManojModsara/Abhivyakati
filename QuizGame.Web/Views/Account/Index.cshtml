@@ -1,0 +1,86 @@
+﻿@model QuizGame.Dto.LoginDto
+@{
+    ViewBag.Title = "Admin Log in";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    @Styles.Render("~/Content/css/bootstrap.min.css",
+    "~/Content/css/font-awesome.min.css",
+    "~/Content/css/AdminLTE.min.css",
+    "~/Content/css/skins/_all-skins.min.css", "~/Content/plugins/iCheck/square/blue.css"
+    )
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+</head>
+<body class="hold-transition login-page">
+   
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>Quiz </b>Game Test series</a>
+        </div>
+
+        @Html.Partial("_Notification")
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <form id="form1" action="@Url.Action("Index", "account")" method="post">
+
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="footer">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign me in</button>
+                    <p class="errormsg">@ViewBag.Invalid</p>
+                    <p><a href="@Url.Action("forgotpassword", "account")">Forgot Your Password</a></p>
+                </div>
+              </form>
+
+
+                @*<div class="social-auth-links text-center">
+                <p>- OR -</p>
+                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+                    <i class="fa fa-facebook"></i> Sign in using
+                    Facebook
+                </a>
+                <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+                    <i class="fa fa-google-plus"></i> Sign in using
+                    Google+
+                </a>
+            </div>*@
+                <!-- /.social-auth-links -->
+                @*<a href="#">I forgot my password</a><br>
+            <a href="register.html" class="text-center">Register a new membership</a>*@
+
+</div>
+        <!-- /.login-box-body -->
+    </div>
+
+</body>
+</html>
+
+@Scripts.Render("~/Scripts/jquery-3.4.1.js",
+    "~/Scripts/bootstrap.min.js",
+    "~/Content/plugins/iCheck/icheck.min.js"
+    )
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  });
+</script>
+

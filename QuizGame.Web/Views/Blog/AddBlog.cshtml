@@ -1,0 +1,83 @@
+﻿@model QuizGame.Dto.BlogDto
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/bundles/css/select2")
+@Styles.Render("~/datatables/css", "~/Content/css/bootstrap-switch.css", "~/Scripts/plugins/alertifyjs/css/alertify.min.css")
+<section class="settings-body">
+    <div class="container">
+        <div class="settings-card">
+            <div class="tab-pane" id="v-pills-personal-settings" role="tabpanel" aria-labelledby="v-pills-personal-settings-tab">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h5 style="color: white;">Add Blog</h5>
+                    </div>
+                    @using (Html.BeginForm("AddBlog", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="info-card-body">
+                            <div class="row">
+                                @Html.Partial("_Notification")
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="alert-type">URL</label>
+                                        @Html.TextBoxFor(model => model.Url, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Url, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alert-type">Title</label>
+                                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alert-type">Short Description</label>
+                                        @Html.TextAreaFor(model => model.ShortDescription, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.ShortDescription, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alert-type">Image</label>
+                                        @Html.HiddenFor(m => m.ShowImg)
+                                        @Html.TextBoxFor(model => model.Image, new { @class = "form-control", @type = "file" })
+                                        @Html.ValidationMessageFor(m => m.Image, "", new { @class = "text-danger" })
+
+                                        <img src="@Model.ShowImg" style="height:3em;" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Descriptions</label>
+                                        @Html.HiddenFor(m => m.ID)
+
+                                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @rows = "50" })
+                                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" id="btnAdd" value="Add" class="btn btn-success" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<script>
+
+    CKEDITOR.replace("Description");
+</script>
+
+@section scripts{
+    @Scripts.Render("~/bundles/datatables", "~/bundles/jqueryval", "~/bundles/datepicker", "~/bundles/select2", "~/Scripts/global.js")
+    @Scripts.Render("~/Scripts/plugins/alertifyjs/alertify.min.js")
+
+}
+
+

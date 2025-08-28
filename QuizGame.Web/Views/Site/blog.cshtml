@@ -1,0 +1,114 @@
+﻿@model QuizGame.Web.Models.BlogListdto
+@{
+    //Layout = "~/Views/Shared/_LayoutFront.cshtml";
+    Layout = null;
+}
+
+<style>
+    .columns {
+        padding-bottom: 5px;
+    }
+
+    .posts a {
+        margin: 0.4rem 0;
+    }
+</style>
+
+<!--TITLE-->
+<title>Blogs</title>
+
+
+<!--META TAGS-->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+
+<link rel="stylesheet" href="~/Content/css/news-blog.css">
+
+<!--HEADER-->
+<header style="background: linear-gradient(rgba(1,1,1,.5), rgba(1,1,1,.5)), url('../images/news_banner.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;">
+    <section>
+        <h1 class="title">Our Blogs</h1>
+    </section>
+</header>
+
+
+<!--BLOG SECTION-->
+<div class="blog_container">
+    <div class="blog_content">
+        <div class="left_content">
+            <!--CARD BEGINING-->
+            <div class="blog_card">
+                @{
+                    QuizGame.Web.Models.BlogDetailsModel detailsModel = (QuizGame.Web.Models.BlogDetailsModel)TempData["Blogs"];
+                }
+                @if (detailsModel != null)
+                {
+
+                    <a href="#" class="figure">
+                        <img src="@detailsModel.Image" alt="" loading="lazy">
+                    </a>
+                    <section>
+
+                        <h4 class="title">@detailsModel.Title</h4>
+                        <p>
+                            @Html.Raw(HttpUtility.HtmlDecode(detailsModel.ShortDescription))
+                        </p>
+                        <a class="read" href="~/Site/Details/@detailsModel.Url">Read More ...</a>
+                    </section>
+                }
+            </div>
+            <!--CARD ENDS-->
+            <!--CARD BEGINING-->
+            @foreach (var item in Model.Blogs)
+            {
+                <div class="blog_card">
+                    <a href="#" class="figure">
+                        <div class="blog-image">
+                            <img src="@item.Image" alt="" loading="lazy">
+                        </div>
+                        <span class="tag">@item.Dates</span>
+                    </a>
+                    <section>
+                        <h3 class="title">@item.Title</h3>
+                        <a class="read" href="~/Site/Details/@item.Url">Read More ...</a>
+                    </section>
+                </div>
+            }
+            <!--CARD ENDS-->
+
+        </div>
+
+    </div>
+
+    <div class="blog_content right_content">
+
+        <!--Recent Blogs COLUMN BEGINING-->
+        <div class="columns posts rec-post">
+            <span class="title">Recent Blogs</span>
+            <section>
+                @{
+                    foreach (var d in ViewBag.Data)
+                    {
+                        <a href="/Site/Details/@d.Url" role="tab">
+                            <img src="@d.ImageUrl" alt="" loading="lazy">
+                            <p> @d.Title </p>
+                        </a>
+                    }
+                }
+            </section>
+        </div>
+        <!--Recent Blogs COLUMN ENDS-->
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
