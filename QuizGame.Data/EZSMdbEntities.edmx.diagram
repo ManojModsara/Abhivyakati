@@ -67,6 +67,7 @@
         <AssociationConnector Association="DemoModel.fk_BankAccount_User_UserId" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_BankAccount_AccountId" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_BankAccount_RefAccountId" />
+        <AssociationConnector Association="DemoModel.FK__BankAccou__Accou__30C33EC3" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -190,8 +190,8 @@
           <Property Name="AllowCreate" Type="bit" Nullable="false" />
           <Property Name="AllowUpdate" Type="bit" Nullable="false" />
           <Property Name="AllowDelete" Type="bit" Nullable="false" />
-          <Property Name="AddedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="AddedDate" Type="datetime2" Precision="7" />
+          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
           <Property Name="AddedById" Type="int" />
           <Property Name="UpdatedById" Type="int" />
         </EntityType>
@@ -368,6 +368,18 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="300" />
         </EntityType>
+        <Association Name="FK__BankAccou__Accou__30C33EC3">
+          <End Role="AccountType" Type="Self.AccountType" Multiplicity="0..1" />
+          <End Role="BankAccount" Type="Self.BankAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankAccount">
+              <PropertyRef Name="AccountTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__EmailAPI__Addedb__5BE2A6F2">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="EmailAPI" Type="Self.EmailAPI" Multiplicity="*" />
@@ -829,6 +841,10 @@
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WhatsAppApi" EntityType="Self.WhatsAppApi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zone" EntityType="Self.Zone" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BankAccou__Accou__30C33EC3" Association="Self.FK__BankAccou__Accou__30C33EC3">
+            <End Role="AccountType" EntitySet="AccountType" />
+            <End Role="BankAccount" EntitySet="BankAccount" />
+          </AssociationSet>
           <AssociationSet Name="FK__EmailAPI__Addedb__5BE2A6F2" Association="Self.FK__EmailAPI__Addedb__5BE2A6F2">
             <End Role="Users" EntitySet="Users" />
             <End Role="EmailAPI" EntitySet="EmailAPI" />
@@ -985,6 +1001,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BankAccounts" Relationship="DemoModel.FK__BankAccou__Accou__30C33EC3" FromRole="AccountType" ToRole="BankAccount" />
         </EntityType>
         <EntityType Name="ActivityLog">
           <Key>
@@ -1109,8 +1126,8 @@
           <Property Name="AllowCreate" Type="Boolean" Nullable="false" />
           <Property Name="AllowUpdate" Type="Boolean" Nullable="false" />
           <Property Name="AllowDelete" Type="Boolean" Nullable="false" />
-          <Property Name="AddedDate" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedDate" Type="DateTime" Precision="7" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
           <Property Name="AddedById" Type="Int32" />
           <Property Name="UpdatedById" Type="Int32" />
           <NavigationProperty Name="Menu" Relationship="Self.FK__MapMenuTo__MenuI__2E1BDC42" FromRole="MapMenuToRoles" ToRole="Menus" />
@@ -1501,6 +1518,10 @@
           <AssociationSet Name="fk_BankStatement_BankAccount_RefAccountId" Association="DemoModel.fk_BankStatement_BankAccount_RefAccountId">
             <End Role="BankAccount" EntitySet="BankAccounts" />
             <End Role="BankStatement" EntitySet="BankStatements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BankAccou__Accou__30C33EC3" Association="DemoModel.FK__BankAccou__Accou__30C33EC3">
+            <End Role="AccountType" EntitySet="AccountTypes" />
+            <End Role="BankAccount" EntitySet="BankAccounts" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="UserProfile">
@@ -1922,6 +1943,7 @@
           <NavigationProperty Name="User2" Relationship="DemoModel.fk_BankAccount_User_UserId" FromRole="BankAccount" ToRole="User" />
           <NavigationProperty Name="BankStatements" Relationship="DemoModel.fk_BankStatement_BankAccount_AccountId" FromRole="BankAccount" ToRole="BankStatement" />
           <NavigationProperty Name="BankStatements1" Relationship="DemoModel.fk_BankStatement_BankAccount_RefAccountId" FromRole="BankAccount" ToRole="BankStatement" />
+          <NavigationProperty Name="AccountType" Relationship="DemoModel.FK__BankAccou__Accou__30C33EC3" FromRole="BankAccount" ToRole="AccountType" />
         </EntityType>
         <Association Name="fk_BankAccount_User_AddedById">
           <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
@@ -1980,6 +2002,18 @@
             </Principal>
             <Dependent Role="BankStatement">
               <PropertyRef Name="RefAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BankAccou__Accou__30C33EC3">
+          <End Type="DemoModel.AccountType" Role="AccountType" Multiplicity="0..1" />
+          <End Type="DemoModel.BankAccount" Role="BankAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankAccount">
+              <PropertyRef Name="AccountTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

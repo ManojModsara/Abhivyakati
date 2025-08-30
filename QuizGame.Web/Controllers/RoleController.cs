@@ -59,11 +59,13 @@ namespace QuizGame.Web.Controllers
                 data = roles.Value.Select(c => new List<object> {
                     c.Id,
                     c.RoleName,
+                    //   DataTableButton.EditButton(Url.Action( "createedit", "role",new { id = c.Id }),"modal-add-edit-adminrole")
+                    //+"&nbsp;"+
+                    // DataTableButton.SettingButton(Url.Action( "permission","role", new { id = c.Id }),"Permission")
+                    
                    (actionAllowedDto.AllowEdit? DataTableButton.EditButton(Url.Action( "createedit", "role",new { id = c.Id }),"modal-add-edit-adminrole"):string.Empty )
-                   // +"&nbsp;"+
-                   //(actionAllowedDto.AllowDelete?  DataTableButton.DeleteButton(Url.Action( "delete","role", new { id = c.Id }),"modal-delete-adminrole"):string.Empty)
-                   +"&nbsp;"+
-                     (actionAllowedDto.AllowEdit? 
+                    +"&nbsp;"+
+                     (actionAllowedDto.AllowEdit?
                      DataTableButton.SettingButton(Url.Action( "permission","role", new { id = c.Id }),"Permission")
                      :string.Empty)
                 })

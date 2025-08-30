@@ -31,7 +31,7 @@ namespace QuizGame.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("User", CurrentUser.Roles.FirstOrDefault());
+            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("User", CurrentUser.Roles.FirstOrDefault(), 1);
             try
             {
                 activityLogModel.ActivityName = "User List REQUEST";
@@ -50,7 +50,7 @@ namespace QuizGame.Controllers
         [HttpPost]
         public ActionResult GetAdminUsers(DataTableServerSide model)
         {
-            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("User", CurrentUser.Roles.FirstOrDefault());
+            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("User", CurrentUser.Roles.FirstOrDefault(), 1);
 
             KeyValuePair<int, List<User>> users = adminUserService.GetAdminRoleUser(model, CurrentUser.UserID, CurrentUser.Roles.FirstOrDefault());
             return Json(new
@@ -283,7 +283,7 @@ namespace QuizGame.Controllers
         }
         public ActionResult ContactList()
         {
-            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("ContactList", CurrentUser.Roles.FirstOrDefault());
+            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("ContactList", CurrentUser.Roles.FirstOrDefault(), 1);
             try
             {
                 activityLogModel.ActivityName = "Contact List REQUEST";
@@ -302,7 +302,7 @@ namespace QuizGame.Controllers
         [HttpPost]
         public ActionResult GetContactList(DataTableServerSide model)
         {
-            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("ContactList", CurrentUser.Roles.FirstOrDefault());
+            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("ContactList", CurrentUser.Roles.FirstOrDefault(),1);
 
             KeyValuePair<int, List<ContactU>> users = adminUserService.GetContactList(model);
             return Json(new
@@ -342,7 +342,7 @@ namespace QuizGame.Controllers
         [HttpPost]
         public ActionResult GetPhotoGalleryList(DataTableServerSide model)
         {
-            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("PhotoGallery", CurrentUser.Roles.FirstOrDefault());
+            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("PhotoGallery", CurrentUser.Roles.FirstOrDefault(),1);
             UpdateActivity("GetPhotoGalleryList REQUEST", "POST:User/GetPhotoGalleryList/");
             KeyValuePair<int, List<PhotoGallery>> users = adminUserService.GetPhotoGalleryList(model);
             return Json(new
@@ -433,7 +433,7 @@ namespace QuizGame.Controllers
         {
 
             UpdateActivity("Delete DeleteGalleryImage", "GET:User/DeleteGalleryImage/", "id=" + Id);
-            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("PhotoGallery", CurrentUser.RoleId, 4);
+            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("PhotoGallery", CurrentUser.Roles.FirstOrDefault(), 4);
             return PartialView("_ModalDelete", new Modal
             {
                 Message = "Are You Sure You Want To Delete?",
@@ -448,7 +448,7 @@ namespace QuizGame.Controllers
         public ActionResult DeleteGalleryimage(int Id)
         {
             UpdateActivity("Delete DeleteGalleryImage", "POST:User/DeleteGalleryImage/", "id=" + Id);
-            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("PhotoGallery", CurrentUser.RoleId, 4);
+            ViewBag.actionAllowed = actionAllowedDto = ActionAllowed("PhotoGallery", CurrentUser.Roles.FirstOrDefault(), 4);
             try
             {
                 adminUserService.DeleteGalleryImage(Id);
