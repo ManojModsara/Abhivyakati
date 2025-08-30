@@ -29,9 +29,9 @@ namespace QuizGame.Data
         public string UpiAdress { get; set; }
         public string BranchName { get; set; }
         public string BranchAddress { get; set; }
+        public Nullable<decimal> BlockAmount { get; set; }
         public Nullable<int> AccountTypeId { get; set; }
         public Nullable<int> UserId { get; set; }
-        public Nullable<int> ApiId { get; set; }
         public string Remark { get; set; }
         public Nullable<int> AddedById { get; set; }
         public Nullable<System.DateTime> AddedDate { get; set; }
@@ -39,8 +39,6 @@ namespace QuizGame.Data
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual AccountType AccountType { get; set; }
-        public virtual ApiSource ApiSource { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
         public virtual User User2 { get; set; }

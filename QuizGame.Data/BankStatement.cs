@@ -41,7 +41,6 @@ namespace QuizGame.Data
         public Nullable<int> walletType { get; set; }
     
         public virtual AmtType AmtType { get; set; }
-        public virtual ApiSource ApiSource { get; set; }
         public virtual TransferType TransferType { get; set; }
         public virtual TxnType TxnType { get; set; }
         public virtual User User { get; set; }

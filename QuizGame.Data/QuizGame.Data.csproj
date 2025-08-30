@@ -57,16 +57,7 @@
     <Compile Include="ActivityLog.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="AddMember.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AddReminderDetail.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="AmtType.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApiSource.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="BankAccount.cs">
@@ -90,13 +81,7 @@
     <Compile Include="EmailAPI.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="EmiForReminder.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Event.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ExcelData.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="EZSMdbEntities.Context.cs">
@@ -114,19 +99,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EZSMdbEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="FilterRule.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="GramPanchayat.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="JoinU.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="KYCDistrictList.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KYCDocument.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="KYCStateList.cs">
@@ -138,53 +114,14 @@
     <Compile Include="Menu.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrgType.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OtherPaymentReminder.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ParentUserDataList.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="PaymentStatu.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="PhotoGallery.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReminderPaymentType.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ReminderSetting.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ReminderSettingMember.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RuleList.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SentReminderData.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="server.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ServerPaymentReminder.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SetReminder.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SoftwareType.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="StateList.cs">
@@ -206,9 +143,6 @@
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.cs">
-      <DependentUpon>EZSMdbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VendorUserList.cs">
       <DependentUpon>EZSMdbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="WhatsAppApi.cs">

@@ -4,100 +4,47 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="576bace51100435d9ebefe7d2f0718e2" Name="Diagram1" ZoomLevel="91">
+      <Diagram DiagramId="576bace51100435d9ebefe7d2f0718e2" Name="Diagram1" ZoomLevel="49">
         <EntityTypeShape EntityType="DemoModel.AccountType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.ActivityLog" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.AddMember" Width="1.5" PointX="11" PointY="57.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.AddReminderDetail" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.AmtType" Width="1.5" PointX="10.5" PointY="36.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.ApiSource" Width="1.5" PointX="5.25" PointY="35.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.BankStatement" Width="1.5" PointX="12.75" PointY="36.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.Blog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.EmailAPI" Width="1.5" PointX="5.25" PointY="43" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.EmiForReminder" Width="1.5" PointX="15.5" PointY="46.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.ExcelData" Width="1.5" PointX="5.25" PointY="47.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.FilterRule" Width="1.5" PointX="5.25" PointY="51.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.KYCDistrictList" Width="1.5" PointX="8" PointY="57.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.KYCDocument" Width="1.5" PointX="10.25" PointY="45.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.KYCStateList" Width="1.5" PointX="5.75" PointY="57.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.MapMenuToRole" Width="1.5" PointX="7.5" PointY="52.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.Menu" Width="1.5" PointX="5.25" PointY="63.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.OrgType" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.OtherPaymentReminder" Width="1.5" PointX="18.5" PointY="46.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.ParentUserDataList" Width="1.5" PointX="10.25" PointY="40.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.PaymentStatu" Width="1.5" PointX="13.25" PointY="32.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.Product" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.ReminderPaymentType" Width="1.5" PointX="11" PointY="62.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.ReminderSetting" Width="1.5" PointX="5.25" PointY="72.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.ReminderSettingMember" Width="1.5" PointX="5.25" PointY="76.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.Role" Width="1.5" PointX="0.75" PointY="43.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.RuleList" Width="1.5" PointX="3" PointY="57.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.server" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.ServerPaymentReminder" Width="1.5" PointX="15.5" PointY="41.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.SetReminder" Width="1.5" PointX="13.25" PointY="44.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.SoftwareType" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.StateList" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.StatusType" Width="1.5" PointX="8" PointY="49.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.Ticket" Width="1.5" PointX="10.25" PointY="52.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.TransferType" Width="1.5" PointX="10.5" PointY="33" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.TxnType" Width="1.5" PointX="10.5" PointY="29.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.VendorUserList" Width="1.5" PointX="8" PointY="36.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DemoModel.WhatsAppApi" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoModel.SentReminderData" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
-        <AssociationConnector Association="DemoModel.FK__SetRemind__Membe__7C4F7684" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_AmtType_AmtTypeId" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.fk_BankStatement_ApiSource_ApiId" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_TransferType_TrTypeId" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_TxnType_TxnTypeId" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__EmiForRem__EmiSt__02FC7413" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__EmiForRem__SetRe__03F0984C" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.fk__FilterRule_RuleList_Id" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.FK__KYCDistri__state__6FB49575" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.FK__KYCDistri__state__70A8B9AE" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__KYCDocume__Distr__719CDDE7" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__KYCDocume__State__72910220" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.FK__MapMenuTo__MenuI__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.FK__MapMenuTo__RoleI__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.FK__Menu__ParentId__31EC6D26" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__OtherPaym__Remin__06CD04F7" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__OtherPaym__SetRe__07C12930" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__ParentUse__UserI__1332DBDC" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__ServerPay__Remin__0A9D95DB" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__ServerPay__Remin__0C85DE4D" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__SetRemind__Remin__7D439ABD" ManuallyRouted="false" />
-        <AssociationConnector Association="DemoModel.FK__ServerPay__SetRe__0B91BA14" ManuallyRouted="false" />
         <AssociationConnector Association="DemoModel.fk__Ticket_Status_Id" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DemoModel.UserProfile" Width="1.5" PointX="5.25" PointY="22.375" />
         <EntityTypeShape EntityType="DemoModel.User" Width="1.5" PointX="3" PointY="36.125" />
         <AssociationConnector Association="DemoModel.FK_ActivityLog_User_UserId" />
-        <AssociationConnector Association="DemoModel.FK__AddRemind__Added__6E01572D" />
-        <AssociationConnector Association="DemoModel.FK__AddRemind__Updat__6EF57B66" />
-        <AssociationConnector Association="DemoModel.fk__ApiSource_User_AddedById" />
-        <AssociationConnector Association="DemoModel.fk__ApiSource_User_UpdatedById" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_User_AddedById" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_User_UpdatedById" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_User_UserId" />
         <AssociationConnector Association="DemoModel.FK__EmailAPI__Addedb__68487DD7" />
         <AssociationConnector Association="DemoModel.FK__EmailAPI__Update__693CA210" />
-        <AssociationConnector Association="DemoModel.fk__ExcelDatas_user_Id" />
-        <AssociationConnector Association="DemoModel.fk__ExcelDatas_user_Id2" />
-        <AssociationConnector Association="DemoModel.fk__FilterRule_User_UserId" />
-        <AssociationConnector Association="DemoModel.FK__KYCDocume__Added__662B2B3B" />
-        <AssociationConnector Association="DemoModel.FK__KYCDocume__Appro__671F4F74" />
-        <AssociationConnector Association="DemoModel.FK_kycdoc_userid" />
         <AssociationConnector Association="DemoModel.fk__MapMenuToRole_User_AddedById" />
         <AssociationConnector Association="DemoModel.fk__MapMenuToRole_User_UpdatedById" />
         <AssociationConnector Association="DemoModel.fk__Menu_User_AddedById" />
         <AssociationConnector Association="DemoModel.fk__Menu_User_UpdatedById" />
-        <AssociationConnector Association="DemoModel.FK__ParentUse__Added__0F624AF8" />
-        <AssociationConnector Association="DemoModel.FK__ParentUse__Updat__10566F31" />
-        <AssociationConnector Association="DemoModel.FK__ReminderS__Added__5AB9788F" />
-        <AssociationConnector Association="DemoModel.FK__ReminderS__Updat__5BAD9CC8" />
-        <AssociationConnector Association="DemoModel.FK__ReminderS__Added__75A278F5" />
-        <AssociationConnector Association="DemoModel.FK__ReminderS__Updat__76969D2E" />
         <AssociationConnector Association="DemoModel.fk_User_Role_RoleId" />
-        <AssociationConnector Association="DemoModel.FK__SetRemind__Added__7B5B524B" />
-        <AssociationConnector Association="DemoModel.FK__SetRemind__Updat__7E37BEF6" />
         <AssociationConnector Association="DemoModel.FK_ticket_userid" />
         <AssociationConnector Association="DemoModel.fk__UserProfile_User_AddedById" />
         <AssociationConnector Association="DemoModel.fk__UserProfile_User_UpdatedById" />
@@ -110,19 +57,16 @@
         <AssociationConnector Association="DemoModel.FK__Event__UpdatedBy__2704CA5F" />
         <EntityTypeShape EntityType="DemoModel.ContactU" Width="1.5" PointX="5.375" PointY="8.75" />
         <EntityTypeShape EntityType="DemoModel.PhotoGallery" Width="1.5" PointX="7.375" PointY="8.75" />
-        <EntityTypeShape EntityType="DemoModel.BankAccount" Width="1.5" PointX="7.5" PointY="23.875" />
-        <AssociationConnector Association="DemoModel.FK__BankAccou__Accou__2EA5EC27" />
-        <AssociationConnector Association="DemoModel.fk_BankAccount_ApiSource_ApiId" />
+        <EntityTypeShape EntityType="DemoModel.Block" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DemoModel.District" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DemoModel.GramPanchayat" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DemoModel.Zone" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DemoModel.BankAccount" Width="1.5" PointX="5.25" PointY="37" />
         <AssociationConnector Association="DemoModel.fk_BankAccount_User_AddedById" />
         <AssociationConnector Association="DemoModel.fk_BankAccount_User_UpdatedById" />
         <AssociationConnector Association="DemoModel.fk_BankAccount_User_UserId" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_BankAccount_AccountId" />
         <AssociationConnector Association="DemoModel.fk_BankStatement_BankAccount_RefAccountId" />
-        <EntityTypeShape EntityType="DemoModel.Block" Width="1.5" PointX="9.375" PointY="0.75" />
-        <EntityTypeShape EntityType="DemoModel.District" Width="1.5" PointX="9.375" PointY="3.75" />
-        <EntityTypeShape EntityType="DemoModel.GramPanchayat" Width="1.5" PointX="9.375" PointY="6.75" />
-        <EntityTypeShape EntityType="DemoModel.JoinU" Width="1.5" PointX="9.375" PointY="9.75" />
-        <EntityTypeShape EntityType="DemoModel.Zone" Width="1.5" PointX="11.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

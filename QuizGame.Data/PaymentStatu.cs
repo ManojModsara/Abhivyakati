@@ -14,25 +14,7 @@ namespace QuizGame.Data
     
     public partial class PaymentStatu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PaymentStatu()
-        {
-            this.EmiForReminders = new HashSet<EmiForReminder>();
-            this.OtherPaymentReminders = new HashSet<OtherPaymentReminder>();
-            this.ServerPaymentReminders = new HashSet<ServerPaymentReminder>();
-            this.ServerPaymentReminders1 = new HashSet<ServerPaymentReminder>();
-        }
-    
         public int Id { get; set; }
         public string Status { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmiForReminder> EmiForReminders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OtherPaymentReminder> OtherPaymentReminders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServerPaymentReminder> ServerPaymentReminders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServerPaymentReminder> ServerPaymentReminders1 { get; set; }
     }
 }

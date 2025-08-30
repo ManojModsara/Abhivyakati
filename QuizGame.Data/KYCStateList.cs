@@ -19,7 +19,6 @@ namespace QuizGame.Data
         {
             this.KYCDistrictLists = new HashSet<KYCDistrictList>();
             this.KYCDistrictLists1 = new HashSet<KYCDistrictList>();
-            this.KYCDocuments = new HashSet<KYCDocument>();
         }
     
         public int Id { get; set; }
@@ -29,7 +28,5 @@ namespace QuizGame.Data
         public virtual ICollection<KYCDistrictList> KYCDistrictLists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KYCDistrictList> KYCDistrictLists1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KYCDocument> KYCDocuments { get; set; }
     }
 }

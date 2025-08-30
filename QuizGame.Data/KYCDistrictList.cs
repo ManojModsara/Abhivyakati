@@ -14,12 +14,6 @@ namespace QuizGame.Data
     
     public partial class KYCDistrictList
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KYCDistrictList()
-        {
-            this.KYCDocuments = new HashSet<KYCDocument>();
-        }
-    
         public int Id { get; set; }
         public string DistrictName { get; set; }
         public string code { get; set; }
@@ -27,7 +21,5 @@ namespace QuizGame.Data
     
         public virtual KYCStateList KYCStateList { get; set; }
         public virtual KYCStateList KYCStateList1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KYCDocument> KYCDocuments { get; set; }
     }
 }

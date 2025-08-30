@@ -19,7 +19,7 @@ namespace QuizGame.Data
         public bool AllowCreate { get; set; }
         public bool AllowUpdate { get; set; }
         public bool AllowDelete { get; set; }
-        public Nullable<System.DateTime> AddedDate { get; set; }
+        public System.DateTime AddedDate { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<int> AddedById { get; set; }
         public Nullable<int> UpdatedById { get; set; }

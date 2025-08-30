@@ -18,33 +18,15 @@ namespace QuizGame.Data
         public User()
         {
             this.ActivityLogs = new HashSet<ActivityLog>();
-            this.AddReminderDetails = new HashSet<AddReminderDetail>();
-            this.AddReminderDetails1 = new HashSet<AddReminderDetail>();
-            this.ApiSources = new HashSet<ApiSource>();
-            this.ApiSources1 = new HashSet<ApiSource>();
             this.BankStatements = new HashSet<BankStatement>();
             this.BankStatements1 = new HashSet<BankStatement>();
             this.BankStatements2 = new HashSet<BankStatement>();
             this.EmailAPIs = new HashSet<EmailAPI>();
             this.EmailAPIs1 = new HashSet<EmailAPI>();
-            this.ExcelDatas = new HashSet<ExcelData>();
-            this.ExcelDatas1 = new HashSet<ExcelData>();
-            this.FilterRules = new HashSet<FilterRule>();
-            this.KYCDocuments = new HashSet<KYCDocument>();
-            this.KYCDocuments1 = new HashSet<KYCDocument>();
-            this.KYCDocuments2 = new HashSet<KYCDocument>();
             this.MapMenuToRoles = new HashSet<MapMenuToRole>();
             this.MapMenuToRoles1 = new HashSet<MapMenuToRole>();
             this.Menus = new HashSet<Menu>();
             this.Menus1 = new HashSet<Menu>();
-            this.ParentUserDataLists = new HashSet<ParentUserDataList>();
-            this.ParentUserDataLists1 = new HashSet<ParentUserDataList>();
-            this.ReminderSettings = new HashSet<ReminderSetting>();
-            this.ReminderSettings1 = new HashSet<ReminderSetting>();
-            this.ReminderSettingMembers = new HashSet<ReminderSettingMember>();
-            this.ReminderSettingMembers1 = new HashSet<ReminderSettingMember>();
-            this.SetReminders = new HashSet<SetReminder>();
-            this.SetReminders1 = new HashSet<SetReminder>();
             this.Tickets = new HashSet<Ticket>();
             this.UserProfiles = new HashSet<UserProfile>();
             this.UserProfiles1 = new HashSet<UserProfile>();
@@ -98,14 +80,6 @@ namespace QuizGame.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActivityLog> ActivityLogs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AddReminderDetail> AddReminderDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AddReminderDetail> AddReminderDetails1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ApiSource> ApiSources { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ApiSource> ApiSources1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BankStatement> BankStatements { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BankStatement> BankStatements1 { get; set; }
@@ -116,18 +90,6 @@ namespace QuizGame.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmailAPI> EmailAPIs1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExcelData> ExcelDatas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ExcelData> ExcelDatas1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FilterRule> FilterRules { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KYCDocument> KYCDocuments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KYCDocument> KYCDocuments1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KYCDocument> KYCDocuments2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MapMenuToRole> MapMenuToRoles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MapMenuToRole> MapMenuToRoles1 { get; set; }
@@ -135,23 +97,7 @@ namespace QuizGame.Data
         public virtual ICollection<Menu> Menus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu> Menus1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ParentUserDataList> ParentUserDataLists { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ParentUserDataList> ParentUserDataLists1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReminderSetting> ReminderSettings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReminderSetting> ReminderSettings1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReminderSettingMember> ReminderSettingMembers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReminderSettingMember> ReminderSettingMembers1 { get; set; }
         public virtual Role Role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SetReminder> SetReminders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SetReminder> SetReminders1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Tickets { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

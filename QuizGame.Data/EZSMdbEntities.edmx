@@ -25,41 +25,6 @@
           <Property Name="ActivityPage" Type="varchar" MaxLength="100" />
           <Property Name="Remark" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="AddMember">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ClientName" Type="varchar" MaxLength="50" />
-          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
-          <Property Name="WhatsAppNumber" Type="varchar" MaxLength="20" />
-          <Property Name="Email" Type="varchar" MaxLength="100" />
-          <Property Name="AlterNumber" Type="varchar" MaxLength="20" />
-          <Property Name="Address" Type="varchar" MaxLength="200" />
-          <Property Name="Isacttive" Type="bit" />
-          <Property Name="Isdelete" Type="bit" />
-          <Property Name="AddedbyId" Type="int" />
-          <Property Name="UpdatedbyId" Type="int" />
-          <Property Name="AddedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="AddReminderDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MobileNumber" Type="varchar" MaxLength="15" />
-          <Property Name="WhatsAppNumber" Type="varchar" MaxLength="15" />
-          <Property Name="Email" Type="varchar" MaxLength="100" />
-          <Property Name="IsActive" Type="bit" />
-          <Property Name="IsEmail" Type="bit" />
-          <Property Name="IsSms" Type="bit" />
-          <Property Name="IsWhatsApp" Type="bit" />
-          <Property Name="Addeddate" Type="datetime2" Precision="7" />
-          <Property Name="Updateddate" Type="datetime2" Precision="7" />
-          <Property Name="UpdatedById" Type="int" />
-          <Property Name="AddedById" Type="int" />
-        </EntityType>
         <EntityType Name="AmtType">
           <Key>
             <PropertyRef Name="Id" />
@@ -67,38 +32,6 @@
           <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AmtTypeName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Remark" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="ApiSource">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ApiName" Type="varchar" MaxLength="100" />
-          <Property Name="DisplayName" Type="varchar" MaxLength="100" />
-          <Property Name="ApiTypeId" Type="tinyint" />
-          <Property Name="ApiUserId" Type="varchar" MaxLength="200" />
-          <Property Name="ApiPassword" Type="varchar" MaxLength="200" />
-          <Property Name="Remark" Type="varchar" MaxLength="100" />
-          <Property Name="AddedDate" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
-          <Property Name="AddedById" Type="int" />
-          <Property Name="UpdatedById" Type="int" />
-          <Property Name="ApiPackid" Type="int" />
-          <Property Name="CallbackId" Type="varchar" MaxLength="20" />
-          <Property Name="ApiBal" Type="decimal" Precision="20" Scale="4" />
-          <Property Name="ActualBal" Type="decimal" Precision="20" Scale="4" />
-          <Property Name="IsActive" Type="bit" />
-          <Property Name="StatusCheckTime" Type="int" />
-          <Property Name="IsAutoStatusCheck" Type="bit" />
-          <Property Name="RequestGap" Type="int" />
-          <Property Name="BlockAmount" Type="decimal" Precision="20" Scale="4" />
-          <Property Name="WaitTime" Type="int" />
-          <Property Name="ContactPerson" Type="varchar" MaxLength="200" />
-          <Property Name="ContactNo" Type="varchar" MaxLength="100" />
-          <Property Name="Email" Type="varchar" MaxLength="200" />
-          <Property Name="FullAddress" Type="varchar" MaxLength="500" />
-          <Property Name="ResendWaitTime" Type="int" />
-          <Property Name="BaseUrl" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="BankAccount">
           <Key>
@@ -112,9 +45,9 @@
           <Property Name="UpiAdress" Type="varchar" MaxLength="100" />
           <Property Name="BranchName" Type="varchar" MaxLength="500" />
           <Property Name="BranchAddress" Type="varchar" MaxLength="500" />
+          <Property Name="BlockAmount" Type="decimal" Precision="22" Scale="4" />
           <Property Name="AccountTypeId" Type="int" />
           <Property Name="UserId" Type="int" />
-          <Property Name="ApiId" Type="int" />
           <Property Name="Remark" Type="varchar" MaxLength="100" />
           <Property Name="AddedById" Type="int" />
           <Property Name="AddedDate" Type="datetime2" Precision="7" />
@@ -209,20 +142,6 @@
           <Property Name="Status" Type="bit" />
           <Property Name="portNumber" Type="int" />
         </EntityType>
-        <EntityType Name="EmiForReminder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EmiDate" Type="datetime" />
-          <Property Name="EmiAmount" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="SetReminderId" Type="int" />
-          <Property Name="EmiStatus" Type="int" />
-          <Property Name="ReceivedPayment" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="PaymentDetail" Type="nvarchar(max)" />
-          <Property Name="UploadImage" Type="varchar(max)" />
-          <Property Name="ReceivedEmiDate" Type="datetime" />
-        </EntityType>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
@@ -237,39 +156,6 @@
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedById" Type="int" />
         </EntityType>
-        <EntityType Name="ExcelDatas">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DomainName" Type="nvarchar" MaxLength="200" />
-          <Property Name="Country" Type="nvarchar" MaxLength="200" />
-          <Property Name="MobileNo" Type="nvarchar" MaxLength="100" />
-          <Property Name="TechnialEmail" Type="nvarchar" MaxLength="200" />
-          <Property Name="AdminEmailid" Type="nvarchar" MaxLength="200" />
-          <Property Name="AddedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="AddedById" Type="int" />
-          <Property Name="UpdatedById" Type="int" />
-        </EntityType>
-        <EntityType Name="FilterRules">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FixLength" Type="nvarchar" MaxLength="200" />
-          <Property Name="RuleId" Type="int" />
-          <Property Name="IsAllowSpace" Type="bit" />
-          <Property Name="IsAllowDuplicated" Type="bit" />
-          <Property Name="StartWith" Type="nvarchar" MaxLength="200" />
-          <Property Name="EndWith" Type="nvarchar" MaxLength="200" />
-          <Property Name="IsActive" Type="bit" />
-          <Property Name="AddedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="AddedById" Type="int" />
-          <Property Name="UpdatedById" Type="int" />
-          <Property Name="UserId" Type="int" />
-        </EntityType>
         <EntityType Name="GramPanchayat">
           <Key>
             <PropertyRef Name="Id" />
@@ -277,28 +163,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="300" />
           <Property Name="BlockId" Type="int" />
-        </EntityType>
-        <EntityType Name="JoinUs">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="500" />
-          <Property Name="GuardianName" Type="nvarchar" MaxLength="500" />
-          <Property Name="MobileNumber" Type="varchar" MaxLength="20" />
-          <Property Name="AlternateMobileNumber" Type="varchar" MaxLength="20" />
-          <Property Name="DOB" Type="date" />
-          <Property Name="Village" Type="nvarchar" MaxLength="500" />
-          <Property Name="GramPanchayatId" Type="int" />
-          <Property Name="BlockId" Type="int" />
-          <Property Name="DistrictId" Type="int" />
-          <Property Name="PinCode" Type="varchar" MaxLength="20" />
-          <Property Name="Education" Type="nvarchar(max)" />
-          <Property Name="FullAddress" Type="nvarchar(max)" />
-          <Property Name="AadharNumber" Type="varchar" MaxLength="100" />
-          <Property Name="PanNumber" Type="varchar" MaxLength="100" />
-          <Property Name="UniqueId" Type="nvarchar" MaxLength="100" />
-          <Property Name="JoiningTime" Type="datetime" />
         </EntityType>
         <EntityType Name="KYCDistrictList">
           <Key>
@@ -308,34 +172,6 @@
           <Property Name="DistrictName" Type="varchar" MaxLength="50" />
           <Property Name="code" Type="varchar" MaxLength="20" />
           <Property Name="stateId" Type="int" />
-        </EntityType>
-        <EntityType Name="KYCDocuments">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" />
-          <Property Name="AurthSignName" Type="nvarchar" MaxLength="50" />
-          <Property Name="AurthSignNameImg" Type="nvarchar(max)" />
-          <Property Name="PanCardNum" Type="nvarchar" MaxLength="20" />
-          <Property Name="PanCardImg" Type="nvarchar(max)" />
-          <Property Name="AadharCardNum" Type="nvarchar" MaxLength="20" />
-          <Property Name="AadharImage" Type="nvarchar(max)" />
-          <Property Name="PolicyImg" Type="nvarchar(max)" />
-          <Property Name="CancelCheckImg" Type="nvarchar(max)" />
-          <Property Name="Address" Type="nvarchar" MaxLength="200" />
-          <Property Name="StateId" Type="int" />
-          <Property Name="DistrictId" Type="int" />
-          <Property Name="Pin" Type="int" />
-          <Property Name="PhoneNum" Type="varchar" MaxLength="20" />
-          <Property Name="AddedDate" Type="datetime2" Precision="7" />
-          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
-          <Property Name="AddedBy" Type="int" />
-          <Property Name="UpdatedById" Type="int" />
-          <Property Name="IsKYC" Type="bit" />
-          <Property Name="ApprovedBy" Type="int" />
-          <Property Name="ApprovedDate" Type="datetime2" Precision="7" />
-          <Property Name="SelfImage" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="KYCStateList">
           <Key>
@@ -354,8 +190,8 @@
           <Property Name="AllowCreate" Type="bit" Nullable="false" />
           <Property Name="AllowUpdate" Type="bit" Nullable="false" />
           <Property Name="AllowDelete" Type="bit" Nullable="false" />
-          <Property Name="AddedDate" Type="datetime2" Precision="7" />
-          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="AddedById" Type="int" />
           <Property Name="UpdatedById" Type="int" />
         </EntityType>
@@ -378,42 +214,6 @@
           <Property Name="UpdatedById" Type="int" />
           <Property Name="ChildId" Type="int" />
         </EntityType>
-        <EntityType Name="OrgType">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TypeName" Type="varchar" MaxLength="500" />
-        </EntityType>
-        <EntityType Name="OtherPaymentReminder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TotalPayment" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="RemainingPayment" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="ReceivedPayment" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="ReceivedDate" Type="datetime" />
-          <Property Name="PaymentDetail" Type="nvarchar" MaxLength="500" />
-          <Property Name="UploadImage" Type="varchar(max)" />
-          <Property Name="ReminderStatus" Type="int" />
-          <Property Name="SetReminderId" Type="int" />
-          <Property Name="ReminderDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="ParentUserDataList">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" />
-          <Property Name="LoginId" Type="varchar" MaxLength="100" />
-          <Property Name="PasWord" Type="varchar" MaxLength="100" />
-          <Property Name="IsActive" Type="bit" />
-          <Property Name="Addeddate" Type="datetime2" Precision="7" />
-          <Property Name="Updateddate" Type="datetime2" Precision="7" />
-          <Property Name="UpdatedById" Type="int" />
-          <Property Name="AddedById" Type="int" />
-        </EntityType>
         <EntityType Name="PaymentStatus">
           <Key>
             <PropertyRef Name="Id" />
@@ -429,67 +229,6 @@
           <Property Name="ImageURL" Type="nvarchar(max)" />
           <Property Name="UploadedDate" Type="datetime" />
         </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CompanyName" Type="varchar" MaxLength="200" />
-          <Property Name="DomainName" Type="varchar" MaxLength="100" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="api" Type="bit" Nullable="false" />
-          <Property Name="Retail" Type="bit" Nullable="false" />
-          <Property Name="monytransfear" Type="bit" Nullable="false" />
-          <Property Name="Getway" Type="bit" Nullable="false" />
-          <Property Name="Bilpayment" Type="bit" Nullable="false" />
-          <Property Name="Aeps" Type="bit" Nullable="false" />
-          <Property Name="Basic" Type="bit" Nullable="false" />
-          <Property Name="Roffer" Type="bit" Nullable="false" />
-          <Property Name="Singlevendor" Type="bit" Nullable="false" />
-          <Property Name="Multivendor" Type="bit" Nullable="false" />
-          <Property Name="Softwaretype" Type="varchar" MaxLength="200" />
-        </EntityType>
-        <EntityType Name="ReminderPaymentType">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PaymentType" Type="varchar" MaxLength="50" />
-          <Property Name="Isacttive" Type="bit" />
-          <Property Name="Isdelete" Type="bit" />
-          <Property Name="AddedbyId" Type="int" />
-          <Property Name="UpdatedbyId" Type="int" />
-          <Property Name="AddedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="ReminderSetting">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Actionname" Type="varchar" MaxLength="100" />
-          <Property Name="AllowSMS" Type="bit" Nullable="false" />
-          <Property Name="AllowEmail" Type="bit" Nullable="false" />
-          <Property Name="AllowWhatsApp" Type="bit" Nullable="false" />
-          <Property Name="AddedDate" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
-          <Property Name="AddedById" Type="int" />
-          <Property Name="UpdatedById" Type="int" />
-          <Property Name="Displayname" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="ReminderSettingMember">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AllowSMS" Type="bit" Nullable="false" />
-          <Property Name="AllowEmail" Type="bit" Nullable="false" />
-          <Property Name="AllowWhatsApp" Type="bit" Nullable="false" />
-          <Property Name="AddedDate" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
-          <Property Name="AddedById" Type="int" />
-          <Property Name="UpdatedById" Type="int" />
-        </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="Id" />
@@ -497,95 +236,6 @@
           <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Remark" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="RuleLists">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RuleName" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="SentReminderData">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ClientName" Type="varchar" MaxLength="100" />
-          <Property Name="MobileNumber" Type="varchar" MaxLength="15" />
-          <Property Name="WhatsAppNumber" Type="varchar" MaxLength="15" />
-          <Property Name="Email" Type="varchar" MaxLength="100" />
-          <Property Name="SendMessage" Type="nvarchar(max)" />
-          <Property Name="Addeddate" Type="datetime" />
-          <Property Name="SendBy" Type="int" />
-        </EntityType>
-        <EntityType Name="server">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Servername" Type="nvarchar" MaxLength="200" />
-          <Property Name="IP" Type="nvarchar" MaxLength="50" />
-          <Property Name="Discription" Type="nvarchar" MaxLength="200" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="4" />
-          <Property Name="ServerType" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="ServerPaymentReminder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ReminderDate" Type="datetime" />
-          <Property Name="PayableAmount" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="SetReminderId" Type="int" />
-          <Property Name="ReminderStatus" Type="int" />
-          <Property Name="ReceivedPayment" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="PaymentDetail" Type="nvarchar(max)" />
-          <Property Name="UploadImage" Type="varchar(max)" />
-          <Property Name="ReceivedDate" Type="datetime" />
-          <Property Name="Addeddate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="SetReminder">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MemberId" Type="int" Nullable="false" />
-          <Property Name="ReminderPaymentTypeId" Type="int" Nullable="false" />
-          <Property Name="Software_Server_other_name" Type="varchar" MaxLength="100" />
-          <Property Name="Description" Type="varchar" MaxLength="500" />
-          <Property Name="Project_startDate" Type="datetime" />
-          <Property Name="TotalPayment_Payment" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="ReceivedPayment" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="RemainingPayment" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="IsGst" Type="bit" />
-          <Property Name="GstPercent" Type="varchar" MaxLength="10" />
-          <Property Name="TotalEmi" Type="varchar" MaxLength="10" />
-          <Property Name="EmiAmount" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="ReceivedAccountNumber" Type="varchar" MaxLength="50" />
-          <Property Name="FirstEmiDate" Type="datetime" />
-          <Property Name="Emidays" Type="varchar" MaxLength="10" />
-          <Property Name="Penalty" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="ServerPaymenttype" Type="varchar" MaxLength="30" />
-          <Property Name="Isdelete" Type="bit" />
-          <Property Name="AddedbyId" Type="int" />
-          <Property Name="UpdatedbyId" Type="int" />
-          <Property Name="AddedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="Payment" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="otherReminderDate1" Type="datetime" />
-          <Property Name="otherReminderDate2" Type="datetime" />
-          <Property Name="otherReminderDate3" Type="datetime" />
-          <Property Name="Software_Server_StartDate" Type="datetime2" Precision="7" />
-          <Property Name="IsStop" Type="bit" />
-        </EntityType>
-        <EntityType Name="SoftwareType">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SoftwareName" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="StateList">
           <Key>
@@ -693,31 +343,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="IsAdminRole" Type="bit" />
           <Property Name="IsKYC" Type="bit" />
         </EntityType>
-        <EntityType Name="VendorUserList">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="500" />
-          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
-          <Property Name="Email" Type="varchar" MaxLength="500" />
-          <Property Name="Remark" Type="varchar" MaxLength="500" />
-          <Property Name="IsActive" Type="bit" />
-          <Property Name="AddedDate" Type="datetime2" Precision="7" />
-          <Property Name="AddedById" Type="int" />
-          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
-          <Property Name="UpdatedById" Type="int" />
-          <Property Name="Username" Type="varchar" MaxLength="100" />
-          <Property Name="Password" Type="varchar" MaxLength="200" />
-          <Property Name="ParentId" Type="int" />
-          <Property Name="DealerId" Type="int" />
-          <Property Name="RoleId" Type="tinyint" />
-          <Property Name="ChildUserBal" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="Due_Amt" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="AddAmount" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="PaymentDate" Type="date" />
-          <Property Name="lapuId" Type="bigint" />
-        </EntityType>
         <EntityType Name="WhatsAppApi">
           <Key>
             <PropertyRef Name="Id" />
@@ -743,67 +368,7 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="300" />
         </EntityType>
-        <Association Name="FK__AddRemind__Added__6E01572D">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="AddReminderDetail" Type="Self.AddReminderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AddReminderDetail">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__AddRemind__Updat__6EF57B66">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="AddReminderDetail" Type="Self.AddReminderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AddReminderDetail">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__ApiSource_User_AddedById">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ApiSource" Type="Self.ApiSource" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ApiSource">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__ApiSource_User_UpdatedById">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ApiSource" Type="Self.ApiSource" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ApiSource">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__BankAccou__Accou__2EA5EC27">
-          <End Role="AccountType" Type="Self.AccountType" Multiplicity="0..1" />
-          <End Role="BankAccount" Type="Self.BankAccount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AccountType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BankAccount">
-              <PropertyRef Name="AccountTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EmailAPI__Addedb__68487DD7">
+        <Association Name="FK__EmailAPI__Addedb__5BE2A6F2">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="EmailAPI" Type="Self.EmailAPI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -815,7 +380,7 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmailAPI__Update__693CA210">
+        <Association Name="FK__EmailAPI__Update__5CD6CB2B">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="EmailAPI" Type="Self.EmailAPI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -827,31 +392,7 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmiForRem__EmiSt__02FC7413">
-          <End Role="PaymentStatus" Type="Self.PaymentStatus" Multiplicity="0..1" />
-          <End Role="EmiForReminder" Type="Self.EmiForReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EmiForReminder">
-              <PropertyRef Name="EmiStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EmiForRem__SetRe__03F0984C">
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="0..1" />
-          <End Role="EmiForReminder" Type="Self.EmiForReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SetReminder">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="EmiForReminder">
-              <PropertyRef Name="SetReminderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Event__AddedById__2610A626">
+        <Association Name="FK__Event__AddedById__0F624AF8">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -863,7 +404,19 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Event__UpdatedBy__2704CA5F">
+        <Association Name="FK__Event__AddedById__123EB7A3">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="AddedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__UpdatedBy__10566F31">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
@@ -875,55 +428,19 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk__ExcelDatas_user_Id">
+        <Association Name="FK__Event__UpdatedBy__1332DBDC">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ExcelDatas" Type="Self.ExcelDatas" Multiplicity="*" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ExcelDatas">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__ExcelDatas_user_Id2">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ExcelDatas" Type="Self.ExcelDatas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ExcelDatas">
+            <Dependent Role="Event">
               <PropertyRef Name="UpdatedById" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk__FilterRule_RuleList_Id">
-          <End Role="RuleLists" Type="Self.RuleLists" Multiplicity="0..1" />
-          <End Role="FilterRules" Type="Self.FilterRules" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RuleLists">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FilterRules">
-              <PropertyRef Name="RuleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__FilterRule_User_UserId">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="FilterRules" Type="Self.FilterRules" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FilterRules">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDistri__state__6FB49575">
+        <Association Name="FK__KYCDistri__state__5DCAEF64">
           <End Role="KYCStateList" Type="Self.KYCStateList" Multiplicity="0..1" />
           <End Role="KYCDistrictList" Type="Self.KYCDistrictList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -935,7 +452,7 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KYCDistri__state__70A8B9AE">
+        <Association Name="FK__KYCDistri__state__5EBF139D">
           <End Role="KYCStateList" Type="Self.KYCStateList" Multiplicity="0..1" />
           <End Role="KYCDistrictList" Type="Self.KYCDistrictList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -944,54 +461,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Principal>
             <Dependent Role="KYCDistrictList">
               <PropertyRef Name="stateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__Added__662B2B3B">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="KYCDocuments" Type="Self.KYCDocuments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocuments">
-              <PropertyRef Name="AddedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__Appro__671F4F74">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="KYCDocuments" Type="Self.KYCDocuments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocuments">
-              <PropertyRef Name="ApprovedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__Distr__719CDDE7">
-          <End Role="KYCDistrictList" Type="Self.KYCDistrictList" Multiplicity="0..1" />
-          <End Role="KYCDocuments" Type="Self.KYCDocuments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KYCDistrictList">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocuments">
-              <PropertyRef Name="DistrictId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__State__72910220">
-          <End Role="KYCStateList" Type="Self.KYCStateList" Multiplicity="0..1" />
-          <End Role="KYCDocuments" Type="Self.KYCDocuments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KYCStateList">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocuments">
-              <PropertyRef Name="StateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1076,198 +545,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Principal>
             <Dependent Role="Menus">
               <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__OtherPaym__Remin__06CD04F7">
-          <End Role="PaymentStatus" Type="Self.PaymentStatus" Multiplicity="0..1" />
-          <End Role="OtherPaymentReminder" Type="Self.OtherPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OtherPaymentReminder">
-              <PropertyRef Name="ReminderStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__OtherPaym__SetRe__07C12930">
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="0..1" />
-          <End Role="OtherPaymentReminder" Type="Self.OtherPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SetReminder">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="OtherPaymentReminder">
-              <PropertyRef Name="SetReminderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ParentUse__Added__0F624AF8">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ParentUserDataList" Type="Self.ParentUserDataList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ParentUserDataList">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ParentUse__Updat__10566F31">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ParentUserDataList" Type="Self.ParentUserDataList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ParentUserDataList">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ParentUse__UserI__1332DBDC">
-          <End Role="VendorUserList" Type="Self.VendorUserList" Multiplicity="0..1" />
-          <End Role="ParentUserDataList" Type="Self.ParentUserDataList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VendorUserList">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ParentUserDataList">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Added__5AB9788F">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ReminderSetting" Type="Self.ReminderSetting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSetting">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Added__75A278F5">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ReminderSettingMember" Type="Self.ReminderSettingMember" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSettingMember">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Updat__5BAD9CC8">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ReminderSetting" Type="Self.ReminderSetting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSetting">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Updat__76969D2E">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="ReminderSettingMember" Type="Self.ReminderSettingMember" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSettingMember">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServerPay__Remin__0A9D95DB">
-          <End Role="PaymentStatus" Type="Self.PaymentStatus" Multiplicity="0..1" />
-          <End Role="ServerPaymentReminder" Type="Self.ServerPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ServerPaymentReminder">
-              <PropertyRef Name="ReminderStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServerPay__Remin__0C85DE4D">
-          <End Role="PaymentStatus" Type="Self.PaymentStatus" Multiplicity="0..1" />
-          <End Role="ServerPaymentReminder" Type="Self.ServerPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ServerPaymentReminder">
-              <PropertyRef Name="ReminderStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServerPay__SetRe__0B91BA14">
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="0..1" />
-          <End Role="ServerPaymentReminder" Type="Self.ServerPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SetReminder">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ServerPaymentReminder">
-              <PropertyRef Name="SetReminderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SetRemind__Added__7B5B524B">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="AddedbyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SetRemind__Membe__7C4F7684">
-          <End Role="AddMember" Type="Self.AddMember" Multiplicity="1" />
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AddMember">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="MemberId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SetRemind__Remin__7D439ABD">
-          <End Role="ReminderPaymentType" Type="Self.ReminderPaymentType" Multiplicity="1" />
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReminderPaymentType">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="ReminderPaymentTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SetRemind__Updat__7E37BEF6">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="UpdatedbyId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1367,18 +644,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_BankAccount_ApiSource_ApiId">
-          <End Role="ApiSource" Type="Self.ApiSource" Multiplicity="0..1" />
-          <End Role="BankAccount" Type="Self.BankAccount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ApiSource">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BankAccount">
-              <PropertyRef Name="ApiId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_BankAccount_User_AddedById">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="BankAccount" Type="Self.BankAccount" Multiplicity="*" />
@@ -1424,18 +689,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Principal>
             <Dependent Role="BankStatement">
               <PropertyRef Name="AmtTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BankStatement_ApiSource_ApiId">
-          <End Role="ApiSource" Type="Self.ApiSource" Multiplicity="0..1" />
-          <End Role="BankStatement" Type="Self.BankStatement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ApiSource">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BankStatement">
-              <PropertyRef Name="ApiId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1523,18 +776,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_kycdoc_userid">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="KYCDocuments" Type="Self.KYCDocuments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocuments">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ticket_userid">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
@@ -1562,10 +803,7 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
         <EntityContainer Name="DemoModelStoreContainer">
           <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ActivityLogs" EntityType="Self.ActivityLogs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AddMember" EntityType="Self.AddMember" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AddReminderDetail" EntityType="Self.AddReminderDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AmtType" EntityType="Self.AmtType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ApiSource" EntityType="Self.ApiSource" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankAccount" EntityType="Self.BankAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankStatement" EntityType="Self.BankStatement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Block" EntityType="Self.Block" Schema="dbo" store:Type="Tables" />
@@ -1573,32 +811,15 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmailAPI" EntityType="Self.EmailAPI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EmiForReminder" EntityType="Self.EmiForReminder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ExcelDatas" EntityType="Self.ExcelDatas" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FilterRules" EntityType="Self.FilterRules" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GramPanchayat" EntityType="Self.GramPanchayat" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="JoinUs" EntityType="Self.JoinUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KYCDistrictList" EntityType="Self.KYCDistrictList" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KYCDocuments" EntityType="Self.KYCDocuments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KYCStateList" EntityType="Self.KYCStateList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MapMenuToRoles" EntityType="Self.MapMenuToRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrgType" EntityType="Self.OrgType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OtherPaymentReminder" EntityType="Self.OtherPaymentReminder" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ParentUserDataList" EntityType="Self.ParentUserDataList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhotoGallery" EntityType="Self.PhotoGallery" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ReminderPaymentType" EntityType="Self.ReminderPaymentType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ReminderSetting" EntityType="Self.ReminderSetting" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ReminderSettingMember" EntityType="Self.ReminderSettingMember" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RuleLists" EntityType="Self.RuleLists" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="server" EntityType="Self.server" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServerPaymentReminder" EntityType="Self.ServerPaymentReminder" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SetReminder" EntityType="Self.SetReminder" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SoftwareType" EntityType="Self.SoftwareType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateList" EntityType="Self.StateList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StatusType" EntityType="Self.StatusType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
@@ -1606,104 +827,39 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <EntitySet Name="TxnType" EntityType="Self.TxnType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VendorUserList" EntityType="Self.VendorUserList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WhatsAppApi" EntityType="Self.WhatsAppApi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zone" EntityType="Self.Zone" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SentReminderData" EntityType="Self.SentReminderData" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SentReminderData].[Id] AS [Id], 
-    [SentReminderData].[ClientName] AS [ClientName], 
-    [SentReminderData].[MobileNumber] AS [MobileNumber], 
-    [SentReminderData].[WhatsAppNumber] AS [WhatsAppNumber], 
-    [SentReminderData].[Email] AS [Email], 
-    [SentReminderData].[SendMessage] AS [SendMessage], 
-    [SentReminderData].[Addeddate] AS [Addeddate], 
-    [SentReminderData].[SendBy] AS [SendBy]
-    FROM [dbo].[SentReminderData] AS [SentReminderData]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__AddRemind__Added__6E01572D" Association="Self.FK__AddRemind__Added__6E01572D">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="AddReminderDetail" EntitySet="AddReminderDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK__AddRemind__Updat__6EF57B66" Association="Self.FK__AddRemind__Updat__6EF57B66">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="AddReminderDetail" EntitySet="AddReminderDetail" />
-          </AssociationSet>
-          <AssociationSet Name="fk__ApiSource_User_AddedById" Association="Self.fk__ApiSource_User_AddedById">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ApiSource" EntitySet="ApiSource" />
-          </AssociationSet>
-          <AssociationSet Name="fk__ApiSource_User_UpdatedById" Association="Self.fk__ApiSource_User_UpdatedById">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ApiSource" EntitySet="ApiSource" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BankAccou__Accou__2EA5EC27" Association="Self.FK__BankAccou__Accou__2EA5EC27">
-            <End Role="AccountType" EntitySet="AccountType" />
-            <End Role="BankAccount" EntitySet="BankAccount" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmailAPI__Addedb__68487DD7" Association="Self.FK__EmailAPI__Addedb__68487DD7">
+          <AssociationSet Name="FK__EmailAPI__Addedb__5BE2A6F2" Association="Self.FK__EmailAPI__Addedb__5BE2A6F2">
             <End Role="Users" EntitySet="Users" />
             <End Role="EmailAPI" EntitySet="EmailAPI" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmailAPI__Update__693CA210" Association="Self.FK__EmailAPI__Update__693CA210">
+          <AssociationSet Name="FK__EmailAPI__Update__5CD6CB2B" Association="Self.FK__EmailAPI__Update__5CD6CB2B">
             <End Role="Users" EntitySet="Users" />
             <End Role="EmailAPI" EntitySet="EmailAPI" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmiForRem__EmiSt__02FC7413" Association="Self.FK__EmiForRem__EmiSt__02FC7413">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="EmiForReminder" EntitySet="EmiForReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmiForRem__SetRe__03F0984C" Association="Self.FK__EmiForRem__SetRe__03F0984C">
-            <End Role="SetReminder" EntitySet="SetReminder" />
-            <End Role="EmiForReminder" EntitySet="EmiForReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Event__AddedById__2610A626" Association="Self.FK__Event__AddedById__2610A626">
+          <AssociationSet Name="FK__Event__AddedById__0F624AF8" Association="Self.FK__Event__AddedById__0F624AF8">
             <End Role="Users" EntitySet="Users" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="FK__Event__UpdatedBy__2704CA5F" Association="Self.FK__Event__UpdatedBy__2704CA5F">
+          <AssociationSet Name="FK__Event__AddedById__123EB7A3" Association="Self.FK__Event__AddedById__123EB7A3">
             <End Role="Users" EntitySet="Users" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="fk__ExcelDatas_user_Id" Association="Self.fk__ExcelDatas_user_Id">
+          <AssociationSet Name="FK__Event__UpdatedBy__10566F31" Association="Self.FK__Event__UpdatedBy__10566F31">
             <End Role="Users" EntitySet="Users" />
-            <End Role="ExcelDatas" EntitySet="ExcelDatas" />
+            <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="fk__ExcelDatas_user_Id2" Association="Self.fk__ExcelDatas_user_Id2">
+          <AssociationSet Name="FK__Event__UpdatedBy__1332DBDC" Association="Self.FK__Event__UpdatedBy__1332DBDC">
             <End Role="Users" EntitySet="Users" />
-            <End Role="ExcelDatas" EntitySet="ExcelDatas" />
+            <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="fk__FilterRule_RuleList_Id" Association="Self.fk__FilterRule_RuleList_Id">
-            <End Role="RuleLists" EntitySet="RuleLists" />
-            <End Role="FilterRules" EntitySet="FilterRules" />
-          </AssociationSet>
-          <AssociationSet Name="fk__FilterRule_User_UserId" Association="Self.fk__FilterRule_User_UserId">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="FilterRules" EntitySet="FilterRules" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDistri__state__6FB49575" Association="Self.FK__KYCDistri__state__6FB49575">
+          <AssociationSet Name="FK__KYCDistri__state__5DCAEF64" Association="Self.FK__KYCDistri__state__5DCAEF64">
             <End Role="KYCStateList" EntitySet="KYCStateList" />
             <End Role="KYCDistrictList" EntitySet="KYCDistrictList" />
           </AssociationSet>
-          <AssociationSet Name="FK__KYCDistri__state__70A8B9AE" Association="Self.FK__KYCDistri__state__70A8B9AE">
+          <AssociationSet Name="FK__KYCDistri__state__5EBF139D" Association="Self.FK__KYCDistri__state__5EBF139D">
             <End Role="KYCStateList" EntitySet="KYCStateList" />
             <End Role="KYCDistrictList" EntitySet="KYCDistrictList" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__Added__662B2B3B" Association="Self.FK__KYCDocume__Added__662B2B3B">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="KYCDocuments" EntitySet="KYCDocuments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__Appro__671F4F74" Association="Self.FK__KYCDocume__Appro__671F4F74">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="KYCDocuments" EntitySet="KYCDocuments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__Distr__719CDDE7" Association="Self.FK__KYCDocume__Distr__719CDDE7">
-            <End Role="KYCDistrictList" EntitySet="KYCDistrictList" />
-            <End Role="KYCDocuments" EntitySet="KYCDocuments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__State__72910220" Association="Self.FK__KYCDocume__State__72910220">
-            <End Role="KYCStateList" EntitySet="KYCStateList" />
-            <End Role="KYCDocuments" EntitySet="KYCDocuments" />
           </AssociationSet>
           <AssociationSet Name="FK__MapMenuTo__MenuI__2E1BDC42" Association="Self.FK__MapMenuTo__MenuI__2E1BDC42">
             <End Role="Menus" EntitySet="Menus" />
@@ -1732,70 +888,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <AssociationSet Name="fk__Menu_User_UpdatedById" Association="Self.fk__Menu_User_UpdatedById">
             <End Role="Users" EntitySet="Users" />
             <End Role="Menus" EntitySet="Menus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__OtherPaym__Remin__06CD04F7" Association="Self.FK__OtherPaym__Remin__06CD04F7">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="OtherPaymentReminder" EntitySet="OtherPaymentReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__OtherPaym__SetRe__07C12930" Association="Self.FK__OtherPaym__SetRe__07C12930">
-            <End Role="SetReminder" EntitySet="SetReminder" />
-            <End Role="OtherPaymentReminder" EntitySet="OtherPaymentReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ParentUse__Added__0F624AF8" Association="Self.FK__ParentUse__Added__0F624AF8">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ParentUserDataList" EntitySet="ParentUserDataList" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ParentUse__Updat__10566F31" Association="Self.FK__ParentUse__Updat__10566F31">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ParentUserDataList" EntitySet="ParentUserDataList" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ParentUse__UserI__1332DBDC" Association="Self.FK__ParentUse__UserI__1332DBDC">
-            <End Role="VendorUserList" EntitySet="VendorUserList" />
-            <End Role="ParentUserDataList" EntitySet="ParentUserDataList" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Added__5AB9788F" Association="Self.FK__ReminderS__Added__5AB9788F">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ReminderSetting" EntitySet="ReminderSetting" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Added__75A278F5" Association="Self.FK__ReminderS__Added__75A278F5">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ReminderSettingMember" EntitySet="ReminderSettingMember" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Updat__5BAD9CC8" Association="Self.FK__ReminderS__Updat__5BAD9CC8">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ReminderSetting" EntitySet="ReminderSetting" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Updat__76969D2E" Association="Self.FK__ReminderS__Updat__76969D2E">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ReminderSettingMember" EntitySet="ReminderSettingMember" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServerPay__Remin__0A9D95DB" Association="Self.FK__ServerPay__Remin__0A9D95DB">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="ServerPaymentReminder" EntitySet="ServerPaymentReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServerPay__Remin__0C85DE4D" Association="Self.FK__ServerPay__Remin__0C85DE4D">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="ServerPaymentReminder" EntitySet="ServerPaymentReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServerPay__SetRe__0B91BA14" Association="Self.FK__ServerPay__SetRe__0B91BA14">
-            <End Role="SetReminder" EntitySet="SetReminder" />
-            <End Role="ServerPaymentReminder" EntitySet="ServerPaymentReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SetRemind__Added__7B5B524B" Association="Self.FK__SetRemind__Added__7B5B524B">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="SetReminder" EntitySet="SetReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SetRemind__Membe__7C4F7684" Association="Self.FK__SetRemind__Membe__7C4F7684">
-            <End Role="AddMember" EntitySet="AddMember" />
-            <End Role="SetReminder" EntitySet="SetReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SetRemind__Remin__7D439ABD" Association="Self.FK__SetRemind__Remin__7D439ABD">
-            <End Role="ReminderPaymentType" EntitySet="ReminderPaymentType" />
-            <End Role="SetReminder" EntitySet="SetReminder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SetRemind__Updat__7E37BEF6" Association="Self.FK__SetRemind__Updat__7E37BEF6">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="SetReminder" EntitySet="SetReminder" />
           </AssociationSet>
           <AssociationSet Name="fk__Ticket_Status_Id" Association="Self.fk__Ticket_Status_Id">
             <End Role="StatusType" EntitySet="StatusType" />
@@ -1829,10 +921,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             <End Role="Users" EntitySet="Users" />
             <End Role="ActivityLogs" EntitySet="ActivityLogs" />
           </AssociationSet>
-          <AssociationSet Name="fk_BankAccount_ApiSource_ApiId" Association="Self.fk_BankAccount_ApiSource_ApiId">
-            <End Role="ApiSource" EntitySet="ApiSource" />
-            <End Role="BankAccount" EntitySet="BankAccount" />
-          </AssociationSet>
           <AssociationSet Name="fk_BankAccount_User_AddedById" Association="Self.fk_BankAccount_User_AddedById">
             <End Role="Users" EntitySet="Users" />
             <End Role="BankAccount" EntitySet="BankAccount" />
@@ -1847,10 +935,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           </AssociationSet>
           <AssociationSet Name="fk_BankStatement_AmtType_AmtTypeId" Association="Self.fk_BankStatement_AmtType_AmtTypeId">
             <End Role="AmtType" EntitySet="AmtType" />
-            <End Role="BankStatement" EntitySet="BankStatement" />
-          </AssociationSet>
-          <AssociationSet Name="fk_BankStatement_ApiSource_ApiId" Association="Self.fk_BankStatement_ApiSource_ApiId">
-            <End Role="ApiSource" EntitySet="ApiSource" />
             <End Role="BankStatement" EntitySet="BankStatement" />
           </AssociationSet>
           <AssociationSet Name="fk_BankStatement_BankAccount_AccountId" Association="Self.fk_BankStatement_BankAccount_AccountId">
@@ -1881,10 +965,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             <End Role="Users" EntitySet="Users" />
             <End Role="BankStatement" EntitySet="BankStatement" />
           </AssociationSet>
-          <AssociationSet Name="FK_kycdoc_userid" Association="Self.FK_kycdoc_userid">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="KYCDocuments" EntitySet="KYCDocuments" />
-          </AssociationSet>
           <AssociationSet Name="FK_ticket_userid" Association="Self.FK_ticket_userid">
             <End Role="Users" EntitySet="Users" />
             <End Role="Ticket" EntitySet="Ticket" />
@@ -1905,7 +985,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BankAccounts" Relationship="DemoModel.FK__BankAccou__Accou__2EA5EC27" FromRole="AccountType" ToRole="BankAccount" />
         </EntityType>
         <EntityType Name="ActivityLog">
           <Key>
@@ -1920,44 +999,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="User" Relationship="DemoModel.FK_ActivityLog_User_UserId" FromRole="ActivityLog" ToRole="User" />
         </EntityType>
-        <EntityType Name="AddMember">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="WhatsAppNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="AlterNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Isacttive" Type="Boolean" />
-          <Property Name="Isdelete" Type="Boolean" />
-          <Property Name="AddedbyId" Type="Int32" />
-          <Property Name="UpdatedbyId" Type="Int32" />
-          <Property Name="AddedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="SetReminders" Relationship="Self.FK__SetRemind__Membe__7C4F7684" FromRole="AddMember" ToRole="SetReminder" />
-        </EntityType>
-        <EntityType Name="AddReminderDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MobileNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="WhatsAppNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="IsEmail" Type="Boolean" />
-          <Property Name="IsSms" Type="Boolean" />
-          <Property Name="IsWhatsApp" Type="Boolean" />
-          <Property Name="Addeddate" Type="DateTime" Precision="7" />
-          <Property Name="Updateddate" Type="DateTime" Precision="7" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <Property Name="AddedById" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="DemoModel.FK__AddRemind__Added__6E01572D" FromRole="AddReminderDetail" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.FK__AddRemind__Updat__6EF57B66" FromRole="AddReminderDetail" ToRole="User" />
-          </EntityType>
         <EntityType Name="AmtType">
           <Key>
             <PropertyRef Name="Id" />
@@ -1966,42 +1007,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="AmtTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BankStatements" Relationship="Self.fk_BankStatement_AmtType_AmtTypeId" FromRole="AmtType" ToRole="BankStatement" />
-        </EntityType>
-        <EntityType Name="ApiSource">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ApiName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ApiTypeId" Type="Byte" />
-          <Property Name="ApiUserId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ApiPassword" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
-          <Property Name="AddedById" Type="Int32" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <Property Name="ApiPackid" Type="Int32" />
-          <Property Name="CallbackId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ApiBal" Type="Decimal" Precision="20" Scale="4" />
-          <Property Name="ActualBal" Type="Decimal" Precision="20" Scale="4" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="StatusCheckTime" Type="Int32" />
-          <Property Name="IsAutoStatusCheck" Type="Boolean" />
-          <Property Name="RequestGap" Type="Int32" />
-          <Property Name="BlockAmount" Type="Decimal" Precision="20" Scale="4" />
-          <Property Name="WaitTime" Type="Int32" />
-          <Property Name="ContactPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ContactNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="ResendWaitTime" Type="Int32" />
-          <Property Name="BaseUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BankStatements" Relationship="Self.fk_BankStatement_ApiSource_ApiId" FromRole="ApiSource" ToRole="BankStatement" />
-          <NavigationProperty Name="User" Relationship="DemoModel.fk__ApiSource_User_AddedById" FromRole="ApiSource" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.fk__ApiSource_User_UpdatedById" FromRole="ApiSource" ToRole="User" />
-          <NavigationProperty Name="BankAccounts" Relationship="DemoModel.fk_BankAccount_ApiSource_ApiId" FromRole="ApiSource" ToRole="BankAccount" />
         </EntityType>
         <EntityType Name="BankStatement">
           <Key>
@@ -2033,7 +1038,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="PaymentDate" Type="DateTime" Precision="0" />
           <Property Name="walletType" Type="Int32" />
           <NavigationProperty Name="AmtType" Relationship="Self.fk_BankStatement_AmtType_AmtTypeId" FromRole="BankStatement" ToRole="AmtType" />
-          <NavigationProperty Name="ApiSource" Relationship="Self.fk_BankStatement_ApiSource_ApiId" FromRole="BankStatement" ToRole="ApiSource" />
           <NavigationProperty Name="TransferType" Relationship="Self.fk_BankStatement_TransferType_TrTypeId" FromRole="BankStatement" ToRole="TransferType" />
           <NavigationProperty Name="TxnType" Relationship="Self.fk_BankStatement_TxnType_TxnTypeId" FromRole="BankStatement" ToRole="TxnType" />
           <NavigationProperty Name="User" Relationship="DemoModel.fk_BankStatement_User_AddedById" FromRole="BankStatement" ToRole="User" />
@@ -2075,59 +1079,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <NavigationProperty Name="User" Relationship="DemoModel.FK__EmailAPI__Addedb__68487DD7" FromRole="EmailAPI" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="DemoModel.FK__EmailAPI__Update__693CA210" FromRole="EmailAPI" ToRole="User" />
           </EntityType>
-        <EntityType Name="EmiForReminder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmiDate" Type="DateTime" Precision="3" />
-          <Property Name="EmiAmount" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="SetReminderId" Type="Int32" />
-          <Property Name="EmiStatus" Type="Int32" />
-          <Property Name="ReceivedPayment" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="PaymentDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UploadImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ReceivedEmiDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PaymentStatu" Relationship="Self.FK__EmiForRem__EmiSt__02FC7413" FromRole="EmiForReminder" ToRole="PaymentStatus" />
-          <NavigationProperty Name="SetReminder" Relationship="Self.FK__EmiForRem__SetRe__03F0984C" FromRole="EmiForReminder" ToRole="SetReminder" />
-        </EntityType>
-        <EntityType Name="ExcelData">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DomainName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="MobileNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TechnialEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="AdminEmailid" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="AddedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="AddedById" Type="Int32" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="DemoModel.fk__ExcelDatas_user_Id" FromRole="ExcelData" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.fk__ExcelDatas_user_Id2" FromRole="ExcelData" ToRole="User" />
-          </EntityType>
-        <EntityType Name="FilterRule">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FixLength" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="RuleId" Type="Int32" />
-          <Property Name="IsAllowSpace" Type="Boolean" />
-          <Property Name="IsAllowDuplicated" Type="Boolean" />
-          <Property Name="StartWith" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="EndWith" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="AddedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="AddedById" Type="Int32" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="RuleList" Relationship="Self.fk__FilterRule_RuleList_Id" FromRole="FilterRules" ToRole="RuleLists" />
-          <NavigationProperty Name="User" Relationship="DemoModel.fk__FilterRule_User_UserId" FromRole="FilterRule" ToRole="User" />
-        </EntityType>
         <EntityType Name="KYCDistrictList">
           <Key>
             <PropertyRef Name="Id" />
@@ -2138,40 +1089,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="stateId" Type="Int32" />
           <NavigationProperty Name="KYCStateList" Relationship="Self.FK__KYCDistri__state__6FB49575" FromRole="KYCDistrictList" ToRole="KYCStateList" />
           <NavigationProperty Name="KYCStateList1" Relationship="Self.FK__KYCDistri__state__70A8B9AE" FromRole="KYCDistrictList" ToRole="KYCStateList" />
-          <NavigationProperty Name="KYCDocuments" Relationship="Self.FK__KYCDocume__Distr__719CDDE7" FromRole="KYCDistrictList" ToRole="KYCDocuments" />
-        </EntityType>
-        <EntityType Name="KYCDocument">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="AurthSignName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AurthSignNameImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PanCardNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PanCardImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AadharCardNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="AadharImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PolicyImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CancelCheckImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="StateId" Type="Int32" />
-          <Property Name="DistrictId" Type="Int32" />
-          <Property Name="Pin" Type="Int32" />
-          <Property Name="PhoneNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="AddedDate" Type="DateTime" Precision="7" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
-          <Property Name="AddedBy" Type="Int32" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <Property Name="IsKYC" Type="Boolean" />
-          <Property Name="ApprovedBy" Type="Int32" />
-          <Property Name="ApprovedDate" Type="DateTime" Precision="7" />
-          <Property Name="SelfImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="KYCDistrictList" Relationship="Self.FK__KYCDocume__Distr__719CDDE7" FromRole="KYCDocuments" ToRole="KYCDistrictList" />
-          <NavigationProperty Name="KYCStateList" Relationship="Self.FK__KYCDocume__State__72910220" FromRole="KYCDocuments" ToRole="KYCStateList" />
-          <NavigationProperty Name="User" Relationship="DemoModel.FK__KYCDocume__Added__662B2B3B" FromRole="KYCDocument" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.FK__KYCDocume__Appro__671F4F74" FromRole="KYCDocument" ToRole="User" />
-          <NavigationProperty Name="User2" Relationship="DemoModel.FK_kycdoc_userid" FromRole="KYCDocument" ToRole="User" />
         </EntityType>
         <EntityType Name="KYCStateList">
           <Key>
@@ -2181,7 +1098,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KYCDistrictLists" Relationship="Self.FK__KYCDistri__state__6FB49575" FromRole="KYCStateList" ToRole="KYCDistrictList" />
           <NavigationProperty Name="KYCDistrictLists1" Relationship="Self.FK__KYCDistri__state__70A8B9AE" FromRole="KYCStateList" ToRole="KYCDistrictList" />
-          <NavigationProperty Name="KYCDocuments" Relationship="Self.FK__KYCDocume__State__72910220" FromRole="KYCStateList" ToRole="KYCDocuments" />
         </EntityType>
         <EntityType Name="MapMenuToRole">
           <Key>
@@ -2193,8 +1109,8 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="AllowCreate" Type="Boolean" Nullable="false" />
           <Property Name="AllowUpdate" Type="Boolean" Nullable="false" />
           <Property Name="AllowDelete" Type="Boolean" Nullable="false" />
-          <Property Name="AddedDate" Type="DateTime" Precision="7" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="AddedById" Type="Int32" />
           <Property Name="UpdatedById" Type="Int32" />
           <NavigationProperty Name="Menu" Relationship="Self.FK__MapMenuTo__MenuI__2E1BDC42" FromRole="MapMenuToRoles" ToRole="Menus" />
@@ -2226,123 +1142,12 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <NavigationProperty Name="User" Relationship="DemoModel.fk__Menu_User_AddedById" FromRole="Menu" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="DemoModel.fk__Menu_User_UpdatedById" FromRole="Menu" ToRole="User" />
           </EntityType>
-        <EntityType Name="OrgType">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TypeName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="OtherPaymentReminder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TotalPayment" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="RemainingPayment" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="ReceivedPayment" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
-          <Property Name="PaymentDetail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UploadImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ReminderStatus" Type="Int32" />
-          <Property Name="SetReminderId" Type="Int32" />
-          <Property Name="ReminderDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PaymentStatu" Relationship="Self.FK__OtherPaym__Remin__06CD04F7" FromRole="OtherPaymentReminder" ToRole="PaymentStatus" />
-          <NavigationProperty Name="SetReminder" Relationship="Self.FK__OtherPaym__SetRe__07C12930" FromRole="OtherPaymentReminder" ToRole="SetReminder" />
-        </EntityType>
-        <EntityType Name="ParentUserDataList">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="LoginId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PasWord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="Addeddate" Type="DateTime" Precision="7" />
-          <Property Name="Updateddate" Type="DateTime" Precision="7" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <Property Name="AddedById" Type="Int32" />
-          <NavigationProperty Name="VendorUserList" Relationship="Self.FK__ParentUse__UserI__1332DBDC" FromRole="ParentUserDataList" ToRole="VendorUserList" />
-          <NavigationProperty Name="User" Relationship="DemoModel.FK__ParentUse__Added__0F624AF8" FromRole="ParentUserDataList" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.FK__ParentUse__Updat__10566F31" FromRole="ParentUserDataList" ToRole="User" />
-        </EntityType>
         <EntityType Name="PaymentStatu">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="EmiForReminders" Relationship="Self.FK__EmiForRem__EmiSt__02FC7413" FromRole="PaymentStatus" ToRole="EmiForReminder" />
-          <NavigationProperty Name="OtherPaymentReminders" Relationship="Self.FK__OtherPaym__Remin__06CD04F7" FromRole="PaymentStatus" ToRole="OtherPaymentReminder" />
-          <NavigationProperty Name="ServerPaymentReminders" Relationship="Self.FK__ServerPay__Remin__0A9D95DB" FromRole="PaymentStatus" ToRole="ServerPaymentReminder" />
-          <NavigationProperty Name="ServerPaymentReminders1" Relationship="Self.FK__ServerPay__Remin__0C85DE4D" FromRole="PaymentStatus" ToRole="ServerPaymentReminder" />
-        </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="DomainName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="api" Type="Boolean" Nullable="false" />
-          <Property Name="Retail" Type="Boolean" Nullable="false" />
-          <Property Name="monytransfear" Type="Boolean" Nullable="false" />
-          <Property Name="Getway" Type="Boolean" Nullable="false" />
-          <Property Name="Bilpayment" Type="Boolean" Nullable="false" />
-          <Property Name="Aeps" Type="Boolean" Nullable="false" />
-          <Property Name="Basic" Type="Boolean" Nullable="false" />
-          <Property Name="Roffer" Type="Boolean" Nullable="false" />
-          <Property Name="Singlevendor" Type="Boolean" Nullable="false" />
-          <Property Name="Multivendor" Type="Boolean" Nullable="false" />
-          <Property Name="Softwaretype" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ReminderPaymentType">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Isacttive" Type="Boolean" />
-          <Property Name="Isdelete" Type="Boolean" />
-          <Property Name="AddedbyId" Type="Int32" />
-          <Property Name="UpdatedbyId" Type="Int32" />
-          <Property Name="AddedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="SetReminders" Relationship="Self.FK__SetRemind__Remin__7D439ABD" FromRole="ReminderPaymentType" ToRole="SetReminder" />
-        </EntityType>
-        <EntityType Name="ReminderSetting">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Actionname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="AllowSMS" Type="Boolean" Nullable="false" />
-          <Property Name="AllowEmail" Type="Boolean" Nullable="false" />
-          <Property Name="AllowWhatsApp" Type="Boolean" Nullable="false" />
-          <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
-          <Property Name="AddedById" Type="Int32" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <Property Name="Displayname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="DemoModel.FK__ReminderS__Added__5AB9788F" FromRole="ReminderSetting" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.FK__ReminderS__Updat__5BAD9CC8" FromRole="ReminderSetting" ToRole="User" />
-          </EntityType>
-        <EntityType Name="ReminderSettingMember">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AllowSMS" Type="Boolean" Nullable="false" />
-          <Property Name="AllowEmail" Type="Boolean" Nullable="false" />
-          <Property Name="AllowWhatsApp" Type="Boolean" Nullable="false" />
-          <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
-          <Property Name="AddedById" Type="Int32" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="DemoModel.FK__ReminderS__Added__75A278F5" FromRole="ReminderSettingMember" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.FK__ReminderS__Updat__76969D2E" FromRole="ReminderSettingMember" ToRole="User" />
           </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -2353,91 +1158,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MapMenuToRoles" Relationship="Self.FK__MapMenuTo__RoleI__2F10007B" FromRole="Roles" ToRole="MapMenuToRoles" />
           <NavigationProperty Name="Users" Relationship="DemoModel.fk_User_Role_RoleId" FromRole="Role" ToRole="User" />
-        </EntityType>
-        <EntityType Name="RuleList">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RuleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="FilterRules" Relationship="Self.fk__FilterRule_RuleList_Id" FromRole="RuleLists" ToRole="FilterRules" />
-        </EntityType>
-        <EntityType Name="server">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Servername" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Discription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="ServerType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="ServerPaymentReminder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ReminderDate" Type="DateTime" Precision="3" />
-          <Property Name="PayableAmount" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="SetReminderId" Type="Int32" />
-          <Property Name="ReminderStatus" Type="Int32" />
-          <Property Name="ReceivedPayment" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="PaymentDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UploadImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
-          <Property Name="Addeddate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PaymentStatu" Relationship="Self.FK__ServerPay__Remin__0A9D95DB" FromRole="ServerPaymentReminder" ToRole="PaymentStatus" />
-          <NavigationProperty Name="PaymentStatu1" Relationship="Self.FK__ServerPay__Remin__0C85DE4D" FromRole="ServerPaymentReminder" ToRole="PaymentStatus" />
-          <NavigationProperty Name="SetReminder" Relationship="Self.FK__ServerPay__SetRe__0B91BA14" FromRole="ServerPaymentReminder" ToRole="SetReminder" />
-        </EntityType>
-        <EntityType Name="SetReminder">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MemberId" Type="Int32" Nullable="false" />
-          <Property Name="ReminderPaymentTypeId" Type="Int32" Nullable="false" />
-          <Property Name="Software_Server_other_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Project_startDate" Type="DateTime" Precision="3" />
-          <Property Name="TotalPayment_Payment" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="ReceivedPayment" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="RemainingPayment" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="IsGst" Type="Boolean" />
-          <Property Name="GstPercent" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="TotalEmi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="EmiAmount" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="ReceivedAccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FirstEmiDate" Type="DateTime" Precision="3" />
-          <Property Name="Emidays" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Penalty" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="ServerPaymenttype" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Isdelete" Type="Boolean" />
-          <Property Name="AddedbyId" Type="Int32" />
-          <Property Name="UpdatedbyId" Type="Int32" />
-          <Property Name="AddedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="Payment" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="otherReminderDate1" Type="DateTime" Precision="3" />
-          <Property Name="otherReminderDate2" Type="DateTime" Precision="3" />
-          <Property Name="otherReminderDate3" Type="DateTime" Precision="3" />
-          <Property Name="Software_Server_StartDate" Type="DateTime" Precision="7" />
-          <Property Name="IsStop" Type="Boolean" />
-          <NavigationProperty Name="AddMember" Relationship="Self.FK__SetRemind__Membe__7C4F7684" FromRole="SetReminder" ToRole="AddMember" />
-          <NavigationProperty Name="EmiForReminders" Relationship="Self.FK__EmiForRem__SetRe__03F0984C" FromRole="SetReminder" ToRole="EmiForReminder" />
-          <NavigationProperty Name="OtherPaymentReminders" Relationship="Self.FK__OtherPaym__SetRe__07C12930" FromRole="SetReminder" ToRole="OtherPaymentReminder" />
-          <NavigationProperty Name="ReminderPaymentType" Relationship="Self.FK__SetRemind__Remin__7D439ABD" FromRole="SetReminder" ToRole="ReminderPaymentType" />
-          <NavigationProperty Name="ServerPaymentReminders" Relationship="Self.FK__ServerPay__SetRe__0B91BA14" FromRole="SetReminder" ToRole="ServerPaymentReminder" />
-          <NavigationProperty Name="User" Relationship="DemoModel.FK__SetRemind__Added__7B5B524B" FromRole="SetReminder" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="DemoModel.FK__SetRemind__Updat__7E37BEF6" FromRole="SetReminder" ToRole="User" />
-          </EntityType>
-        <EntityType Name="SoftwareType">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SoftwareName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="StateList">
           <Key>
@@ -2491,32 +1211,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BankStatements" Relationship="Self.fk_BankStatement_TxnType_TxnTypeId" FromRole="TxnType" ToRole="BankStatement" />
         </EntityType>
-        <EntityType Name="VendorUserList">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="AddedDate" Type="DateTime" Precision="7" />
-          <Property Name="AddedById" Type="Int32" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
-          <Property Name="UpdatedById" Type="Int32" />
-          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ParentId" Type="Int32" />
-          <Property Name="DealerId" Type="Int32" />
-          <Property Name="RoleId" Type="Byte" />
-          <Property Name="ChildUserBal" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Due_Amt" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="AddAmount" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="PaymentDate" Type="DateTime" Precision="0" />
-          <Property Name="lapuId" Type="Int64" />
-          <NavigationProperty Name="ParentUserDataLists" Relationship="Self.FK__ParentUse__UserI__1332DBDC" FromRole="VendorUserList" ToRole="ParentUserDataList" />
-        </EntityType>
         <EntityType Name="WhatsAppApi">
           <Key>
             <PropertyRef Name="Id" />
@@ -2535,31 +1229,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="AddedbyId" Type="Int32" />
           <Property Name="UpdatebyId" Type="Int32" />
         </EntityType>
-        <EntityType Name="SentReminderData">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClientName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MobileNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="WhatsAppNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SendMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Addeddate" Type="DateTime" Precision="3" />
-          <Property Name="SendBy" Type="Int32" />
-        </EntityType>
-        <Association Name="FK__SetRemind__Membe__7C4F7684">
-          <End Role="AddMember" Type="Self.AddMember" Multiplicity="1" />
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AddMember">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="MemberId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_BankStatement_AmtType_AmtTypeId">
           <End Role="AmtType" Type="Self.AmtType" Multiplicity="0..1" />
           <End Role="BankStatement" Type="Self.BankStatement" Multiplicity="*" />
@@ -2569,18 +1238,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Principal>
             <Dependent Role="BankStatement">
               <PropertyRef Name="AmtTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BankStatement_ApiSource_ApiId">
-          <End Role="ApiSource" Type="Self.ApiSource" Multiplicity="0..1" />
-          <End Role="BankStatement" Type="Self.BankStatement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ApiSource">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BankStatement">
-              <PropertyRef Name="ApiId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2608,42 +1265,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmiForRem__EmiSt__02FC7413">
-          <End Role="PaymentStatus" Type="Self.PaymentStatu" Multiplicity="0..1" />
-          <End Role="EmiForReminder" Type="Self.EmiForReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EmiForReminder">
-              <PropertyRef Name="EmiStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EmiForRem__SetRe__03F0984C">
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="0..1" />
-          <End Role="EmiForReminder" Type="Self.EmiForReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SetReminder">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="EmiForReminder">
-              <PropertyRef Name="SetReminderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__FilterRule_RuleList_Id">
-          <End Role="RuleLists" Type="Self.RuleList" Multiplicity="0..1" />
-          <End Role="FilterRules" Type="Self.FilterRule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RuleLists">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FilterRules">
-              <PropertyRef Name="RuleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__KYCDistri__state__6FB49575">
           <End Role="KYCStateList" Type="Self.KYCStateList" Multiplicity="0..1" />
           <End Role="KYCDistrictList" Type="Self.KYCDistrictList" Multiplicity="*" />
@@ -2665,30 +1286,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Principal>
             <Dependent Role="KYCDistrictList">
               <PropertyRef Name="stateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__Distr__719CDDE7">
-          <End Role="KYCDistrictList" Type="Self.KYCDistrictList" Multiplicity="0..1" />
-          <End Role="KYCDocuments" Type="Self.KYCDocument" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KYCDistrictList">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocuments">
-              <PropertyRef Name="DistrictId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__State__72910220">
-          <End Role="KYCStateList" Type="Self.KYCStateList" Multiplicity="0..1" />
-          <End Role="KYCDocuments" Type="Self.KYCDocument" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KYCStateList">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocuments">
-              <PropertyRef Name="StateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2728,90 +1325,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OtherPaym__Remin__06CD04F7">
-          <End Role="PaymentStatus" Type="Self.PaymentStatu" Multiplicity="0..1" />
-          <End Role="OtherPaymentReminder" Type="Self.OtherPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OtherPaymentReminder">
-              <PropertyRef Name="ReminderStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__OtherPaym__SetRe__07C12930">
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="0..1" />
-          <End Role="OtherPaymentReminder" Type="Self.OtherPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SetReminder">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="OtherPaymentReminder">
-              <PropertyRef Name="SetReminderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ParentUse__UserI__1332DBDC">
-          <End Role="VendorUserList" Type="Self.VendorUserList" Multiplicity="0..1" />
-          <End Role="ParentUserDataList" Type="Self.ParentUserDataList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VendorUserList">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ParentUserDataList">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServerPay__Remin__0A9D95DB">
-          <End Role="PaymentStatus" Type="Self.PaymentStatu" Multiplicity="0..1" />
-          <End Role="ServerPaymentReminder" Type="Self.ServerPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ServerPaymentReminder">
-              <PropertyRef Name="ReminderStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServerPay__Remin__0C85DE4D">
-          <End Role="PaymentStatus" Type="Self.PaymentStatu" Multiplicity="0..1" />
-          <End Role="ServerPaymentReminder" Type="Self.ServerPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ServerPaymentReminder">
-              <PropertyRef Name="ReminderStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SetRemind__Remin__7D439ABD">
-          <End Role="ReminderPaymentType" Type="Self.ReminderPaymentType" Multiplicity="1" />
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReminderPaymentType">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="ReminderPaymentTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServerPay__SetRe__0B91BA14">
-          <End Role="SetReminder" Type="Self.SetReminder" Multiplicity="0..1" />
-          <End Role="ServerPaymentReminder" Type="Self.ServerPaymentReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SetReminder">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ServerPaymentReminder">
-              <PropertyRef Name="SetReminderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk__Ticket_Status_Id">
           <End Role="StatusType" Type="Self.StatusType" Multiplicity="0..1" />
           <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
@@ -2827,53 +1340,24 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
         <EntityContainer Name="EZSMdbEntitie" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AccountTypes" EntityType="Self.AccountType" />
           <EntitySet Name="ActivityLogs" EntityType="Self.ActivityLog" />
-          <EntitySet Name="AddMembers" EntityType="Self.AddMember" />
-          <EntitySet Name="AddReminderDetails" EntityType="Self.AddReminderDetail" />
           <EntitySet Name="AmtTypes" EntityType="Self.AmtType" />
-          <EntitySet Name="ApiSources" EntityType="Self.ApiSource" />
           <EntitySet Name="BankStatements" EntityType="Self.BankStatement" />
           <EntitySet Name="Blogs" EntityType="Self.Blog" />
           <EntitySet Name="EmailAPIs" EntityType="Self.EmailAPI" />
-          <EntitySet Name="EmiForReminders" EntityType="Self.EmiForReminder" />
-          <EntitySet Name="ExcelDatas" EntityType="Self.ExcelData" />
-          <EntitySet Name="FilterRules" EntityType="Self.FilterRule" />
           <EntitySet Name="KYCDistrictLists" EntityType="Self.KYCDistrictList" />
-          <EntitySet Name="KYCDocuments" EntityType="Self.KYCDocument" />
           <EntitySet Name="KYCStateLists" EntityType="Self.KYCStateList" />
           <EntitySet Name="MapMenuToRoles" EntityType="Self.MapMenuToRole" />
           <EntitySet Name="Menus" EntityType="Self.Menu" />
-          <EntitySet Name="OrgTypes" EntityType="Self.OrgType" />
-          <EntitySet Name="OtherPaymentReminders" EntityType="Self.OtherPaymentReminder" />
-          <EntitySet Name="ParentUserDataLists" EntityType="Self.ParentUserDataList" />
           <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatu" />
-          <EntitySet Name="Products" EntityType="Self.Product" />
-          <EntitySet Name="ReminderPaymentTypes" EntityType="Self.ReminderPaymentType" />
-          <EntitySet Name="ReminderSettings" EntityType="Self.ReminderSetting" />
-          <EntitySet Name="ReminderSettingMembers" EntityType="Self.ReminderSettingMember" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
-          <EntitySet Name="RuleLists" EntityType="Self.RuleList" />
-          <EntitySet Name="servers" EntityType="Self.server" />
-          <EntitySet Name="ServerPaymentReminders" EntityType="Self.ServerPaymentReminder" />
-          <EntitySet Name="SetReminders" EntityType="Self.SetReminder" />
-          <EntitySet Name="SoftwareTypes" EntityType="Self.SoftwareType" />
           <EntitySet Name="StateLists" EntityType="Self.StateList" />
           <EntitySet Name="StatusTypes" EntityType="Self.StatusType" />
           <EntitySet Name="Tickets" EntityType="Self.Ticket" />
           <EntitySet Name="TransferTypes" EntityType="Self.TransferType" />
           <EntitySet Name="TxnTypes" EntityType="Self.TxnType" />
-          <EntitySet Name="VendorUserLists" EntityType="Self.VendorUserList" />
           <EntitySet Name="WhatsAppApis" EntityType="Self.WhatsAppApi" />
-          <EntitySet Name="SentReminderDatas" EntityType="Self.SentReminderData" />
-          <AssociationSet Name="FK__SetRemind__Membe__7C4F7684" Association="Self.FK__SetRemind__Membe__7C4F7684">
-            <End Role="AddMember" EntitySet="AddMembers" />
-            <End Role="SetReminder" EntitySet="SetReminders" />
-          </AssociationSet>
           <AssociationSet Name="fk_BankStatement_AmtType_AmtTypeId" Association="Self.fk_BankStatement_AmtType_AmtTypeId">
             <End Role="AmtType" EntitySet="AmtTypes" />
-            <End Role="BankStatement" EntitySet="BankStatements" />
-          </AssociationSet>
-          <AssociationSet Name="fk_BankStatement_ApiSource_ApiId" Association="Self.fk_BankStatement_ApiSource_ApiId">
-            <End Role="ApiSource" EntitySet="ApiSources" />
             <End Role="BankStatement" EntitySet="BankStatements" />
           </AssociationSet>
           <AssociationSet Name="fk_BankStatement_TransferType_TrTypeId" Association="Self.fk_BankStatement_TransferType_TrTypeId">
@@ -2884,18 +1368,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             <End Role="TxnType" EntitySet="TxnTypes" />
             <End Role="BankStatement" EntitySet="BankStatements" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmiForRem__EmiSt__02FC7413" Association="Self.FK__EmiForRem__EmiSt__02FC7413">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="EmiForReminder" EntitySet="EmiForReminders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmiForRem__SetRe__03F0984C" Association="Self.FK__EmiForRem__SetRe__03F0984C">
-            <End Role="SetReminder" EntitySet="SetReminders" />
-            <End Role="EmiForReminder" EntitySet="EmiForReminders" />
-          </AssociationSet>
-          <AssociationSet Name="fk__FilterRule_RuleList_Id" Association="Self.fk__FilterRule_RuleList_Id">
-            <End Role="RuleLists" EntitySet="RuleLists" />
-            <End Role="FilterRules" EntitySet="FilterRules" />
-          </AssociationSet>
           <AssociationSet Name="FK__KYCDistri__state__6FB49575" Association="Self.FK__KYCDistri__state__6FB49575">
             <End Role="KYCStateList" EntitySet="KYCStateLists" />
             <End Role="KYCDistrictList" EntitySet="KYCDistrictLists" />
@@ -2903,14 +1375,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <AssociationSet Name="FK__KYCDistri__state__70A8B9AE" Association="Self.FK__KYCDistri__state__70A8B9AE">
             <End Role="KYCStateList" EntitySet="KYCStateLists" />
             <End Role="KYCDistrictList" EntitySet="KYCDistrictLists" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__Distr__719CDDE7" Association="Self.FK__KYCDocume__Distr__719CDDE7">
-            <End Role="KYCDistrictList" EntitySet="KYCDistrictLists" />
-            <End Role="KYCDocuments" EntitySet="KYCDocuments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__State__72910220" Association="Self.FK__KYCDocume__State__72910220">
-            <End Role="KYCStateList" EntitySet="KYCStateLists" />
-            <End Role="KYCDocuments" EntitySet="KYCDocuments" />
           </AssociationSet>
           <AssociationSet Name="FK__MapMenuTo__MenuI__2E1BDC42" Association="Self.FK__MapMenuTo__MenuI__2E1BDC42">
             <End Role="Menus" EntitySet="Menus" />
@@ -2924,34 +1388,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             <End Role="Menus" EntitySet="Menus" />
             <End Role="Menus1" EntitySet="Menus" />
           </AssociationSet>
-          <AssociationSet Name="FK__OtherPaym__Remin__06CD04F7" Association="Self.FK__OtherPaym__Remin__06CD04F7">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="OtherPaymentReminder" EntitySet="OtherPaymentReminders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__OtherPaym__SetRe__07C12930" Association="Self.FK__OtherPaym__SetRe__07C12930">
-            <End Role="SetReminder" EntitySet="SetReminders" />
-            <End Role="OtherPaymentReminder" EntitySet="OtherPaymentReminders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ParentUse__UserI__1332DBDC" Association="Self.FK__ParentUse__UserI__1332DBDC">
-            <End Role="VendorUserList" EntitySet="VendorUserLists" />
-            <End Role="ParentUserDataList" EntitySet="ParentUserDataLists" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServerPay__Remin__0A9D95DB" Association="Self.FK__ServerPay__Remin__0A9D95DB">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="ServerPaymentReminder" EntitySet="ServerPaymentReminders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServerPay__Remin__0C85DE4D" Association="Self.FK__ServerPay__Remin__0C85DE4D">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="ServerPaymentReminder" EntitySet="ServerPaymentReminders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SetRemind__Remin__7D439ABD" Association="Self.FK__SetRemind__Remin__7D439ABD">
-            <End Role="ReminderPaymentType" EntitySet="ReminderPaymentTypes" />
-            <End Role="SetReminder" EntitySet="SetReminders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServerPay__SetRe__0B91BA14" Association="Self.FK__ServerPay__SetRe__0B91BA14">
-            <End Role="SetReminder" EntitySet="SetReminders" />
-            <End Role="ServerPaymentReminder" EntitySet="ServerPaymentReminders" />
-          </AssociationSet>
           <AssociationSet Name="fk__Ticket_Status_Id" Association="Self.fk__Ticket_Status_Id">
             <End Role="StatusType" EntitySet="StatusTypes" />
             <End Role="Ticket" EntitySet="Tickets" />
@@ -2961,22 +1397,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <AssociationSet Name="FK_ActivityLog_User_UserId" Association="DemoModel.FK_ActivityLog_User_UserId">
             <End Role="User" EntitySet="Users" />
             <End Role="ActivityLog" EntitySet="ActivityLogs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__AddRemind__Added__6E01572D" Association="DemoModel.FK__AddRemind__Added__6E01572D">
-            <End Role="User" EntitySet="Users" />
-            <End Role="AddReminderDetail" EntitySet="AddReminderDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__AddRemind__Updat__6EF57B66" Association="DemoModel.FK__AddRemind__Updat__6EF57B66">
-            <End Role="User" EntitySet="Users" />
-            <End Role="AddReminderDetail" EntitySet="AddReminderDetails" />
-          </AssociationSet>
-          <AssociationSet Name="fk__ApiSource_User_AddedById" Association="DemoModel.fk__ApiSource_User_AddedById">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ApiSource" EntitySet="ApiSources" />
-          </AssociationSet>
-          <AssociationSet Name="fk__ApiSource_User_UpdatedById" Association="DemoModel.fk__ApiSource_User_UpdatedById">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ApiSource" EntitySet="ApiSources" />
           </AssociationSet>
           <AssociationSet Name="fk_BankStatement_User_AddedById" Association="DemoModel.fk_BankStatement_User_AddedById">
             <End Role="User" EntitySet="Users" />
@@ -2998,30 +1418,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             <End Role="User" EntitySet="Users" />
             <End Role="EmailAPI" EntitySet="EmailAPIs" />
           </AssociationSet>
-          <AssociationSet Name="fk__ExcelDatas_user_Id" Association="DemoModel.fk__ExcelDatas_user_Id">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ExcelData" EntitySet="ExcelDatas" />
-          </AssociationSet>
-          <AssociationSet Name="fk__ExcelDatas_user_Id2" Association="DemoModel.fk__ExcelDatas_user_Id2">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ExcelData" EntitySet="ExcelDatas" />
-          </AssociationSet>
-          <AssociationSet Name="fk__FilterRule_User_UserId" Association="DemoModel.fk__FilterRule_User_UserId">
-            <End Role="User" EntitySet="Users" />
-            <End Role="FilterRule" EntitySet="FilterRules" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__Added__662B2B3B" Association="DemoModel.FK__KYCDocume__Added__662B2B3B">
-            <End Role="User" EntitySet="Users" />
-            <End Role="KYCDocument" EntitySet="KYCDocuments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__KYCDocume__Appro__671F4F74" Association="DemoModel.FK__KYCDocume__Appro__671F4F74">
-            <End Role="User" EntitySet="Users" />
-            <End Role="KYCDocument" EntitySet="KYCDocuments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_kycdoc_userid" Association="DemoModel.FK_kycdoc_userid">
-            <End Role="User" EntitySet="Users" />
-            <End Role="KYCDocument" EntitySet="KYCDocuments" />
-          </AssociationSet>
           <AssociationSet Name="fk__MapMenuToRole_User_AddedById" Association="DemoModel.fk__MapMenuToRole_User_AddedById">
             <End Role="User" EntitySet="Users" />
             <End Role="MapMenuToRole" EntitySet="MapMenuToRoles" />
@@ -3038,41 +1434,9 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             <End Role="User" EntitySet="Users" />
             <End Role="Menu" EntitySet="Menus" />
           </AssociationSet>
-          <AssociationSet Name="FK__ParentUse__Added__0F624AF8" Association="DemoModel.FK__ParentUse__Added__0F624AF8">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ParentUserDataList" EntitySet="ParentUserDataLists" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ParentUse__Updat__10566F31" Association="DemoModel.FK__ParentUse__Updat__10566F31">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ParentUserDataList" EntitySet="ParentUserDataLists" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Added__5AB9788F" Association="DemoModel.FK__ReminderS__Added__5AB9788F">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ReminderSetting" EntitySet="ReminderSettings" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Updat__5BAD9CC8" Association="DemoModel.FK__ReminderS__Updat__5BAD9CC8">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ReminderSetting" EntitySet="ReminderSettings" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Added__75A278F5" Association="DemoModel.FK__ReminderS__Added__75A278F5">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ReminderSettingMember" EntitySet="ReminderSettingMembers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReminderS__Updat__76969D2E" Association="DemoModel.FK__ReminderS__Updat__76969D2E">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ReminderSettingMember" EntitySet="ReminderSettingMembers" />
-          </AssociationSet>
           <AssociationSet Name="fk_User_Role_RoleId" Association="DemoModel.fk_User_Role_RoleId">
             <End Role="Role" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SetRemind__Added__7B5B524B" Association="DemoModel.FK__SetRemind__Added__7B5B524B">
-            <End Role="User" EntitySet="Users" />
-            <End Role="SetReminder" EntitySet="SetReminders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SetRemind__Updat__7E37BEF6" Association="DemoModel.FK__SetRemind__Updat__7E37BEF6">
-            <End Role="User" EntitySet="Users" />
-            <End Role="SetReminder" EntitySet="SetReminders" />
           </AssociationSet>
           <AssociationSet Name="FK_ticket_userid" Association="DemoModel.FK_ticket_userid">
             <End Role="User" EntitySet="Users" />
@@ -3113,15 +1477,11 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           </AssociationSet>
           <EntitySet Name="ContactUs" EntityType="DemoModel.ContactU" />
           <EntitySet Name="PhotoGalleries" EntityType="DemoModel.PhotoGallery" />
+          <EntitySet Name="Blocks" EntityType="DemoModel.Block" />
+          <EntitySet Name="Districts" EntityType="DemoModel.District" />
+          <EntitySet Name="GramPanchayats" EntityType="DemoModel.GramPanchayat" />
+          <EntitySet Name="Zones" EntityType="DemoModel.Zone" />
           <EntitySet Name="BankAccounts" EntityType="DemoModel.BankAccount" />
-          <AssociationSet Name="FK__BankAccou__Accou__2EA5EC27" Association="DemoModel.FK__BankAccou__Accou__2EA5EC27">
-            <End Role="AccountType" EntitySet="AccountTypes" />
-            <End Role="BankAccount" EntitySet="BankAccounts" />
-          </AssociationSet>
-          <AssociationSet Name="fk_BankAccount_ApiSource_ApiId" Association="DemoModel.fk_BankAccount_ApiSource_ApiId">
-            <End Role="ApiSource" EntitySet="ApiSources" />
-            <End Role="BankAccount" EntitySet="BankAccounts" />
-          </AssociationSet>
           <AssociationSet Name="fk_BankAccount_User_AddedById" Association="DemoModel.fk_BankAccount_User_AddedById">
             <End Role="User" EntitySet="Users" />
             <End Role="BankAccount" EntitySet="BankAccounts" />
@@ -3142,11 +1502,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             <End Role="BankAccount" EntitySet="BankAccounts" />
             <End Role="BankStatement" EntitySet="BankStatements" />
           </AssociationSet>
-          <EntitySet Name="Blocks" EntityType="DemoModel.Block" />
-          <EntitySet Name="Districts" EntityType="DemoModel.District" />
-          <EntitySet Name="GramPanchayats" EntityType="DemoModel.GramPanchayat" />
-          <EntitySet Name="JoinUs" EntityType="DemoModel.JoinU" />
-          <EntitySet Name="Zones" EntityType="DemoModel.Zone" />
           </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
@@ -3210,34 +1565,16 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="IsAdminRole" Type="Boolean" />
           <Property Name="IsKYC" Type="Boolean" />
           <NavigationProperty Name="ActivityLogs" Relationship="DemoModel.FK_ActivityLog_User_UserId" FromRole="User" ToRole="ActivityLog" />
-          <NavigationProperty Name="AddReminderDetails" Relationship="DemoModel.FK__AddRemind__Added__6E01572D" FromRole="User" ToRole="AddReminderDetail" />
-          <NavigationProperty Name="AddReminderDetails1" Relationship="DemoModel.FK__AddRemind__Updat__6EF57B66" FromRole="User" ToRole="AddReminderDetail" />
-          <NavigationProperty Name="ApiSources" Relationship="DemoModel.fk__ApiSource_User_AddedById" FromRole="User" ToRole="ApiSource" />
-          <NavigationProperty Name="ApiSources1" Relationship="DemoModel.fk__ApiSource_User_UpdatedById" FromRole="User" ToRole="ApiSource" />
           <NavigationProperty Name="BankStatements" Relationship="DemoModel.fk_BankStatement_User_AddedById" FromRole="User" ToRole="BankStatement" />
           <NavigationProperty Name="BankStatements1" Relationship="DemoModel.fk_BankStatement_User_UpdatedById" FromRole="User" ToRole="BankStatement" />
           <NavigationProperty Name="BankStatements2" Relationship="DemoModel.fk_BankStatement_User_UserId" FromRole="User" ToRole="BankStatement" />
           <NavigationProperty Name="EmailAPIs" Relationship="DemoModel.FK__EmailAPI__Addedb__68487DD7" FromRole="User" ToRole="EmailAPI" />
           <NavigationProperty Name="EmailAPIs1" Relationship="DemoModel.FK__EmailAPI__Update__693CA210" FromRole="User" ToRole="EmailAPI" />
-          <NavigationProperty Name="ExcelDatas" Relationship="DemoModel.fk__ExcelDatas_user_Id" FromRole="User" ToRole="ExcelData" />
-          <NavigationProperty Name="ExcelDatas1" Relationship="DemoModel.fk__ExcelDatas_user_Id2" FromRole="User" ToRole="ExcelData" />
-          <NavigationProperty Name="FilterRules" Relationship="DemoModel.fk__FilterRule_User_UserId" FromRole="User" ToRole="FilterRule" />
-          <NavigationProperty Name="KYCDocuments" Relationship="DemoModel.FK__KYCDocume__Added__662B2B3B" FromRole="User" ToRole="KYCDocument" />
-          <NavigationProperty Name="KYCDocuments1" Relationship="DemoModel.FK__KYCDocume__Appro__671F4F74" FromRole="User" ToRole="KYCDocument" />
-          <NavigationProperty Name="KYCDocuments2" Relationship="DemoModel.FK_kycdoc_userid" FromRole="User" ToRole="KYCDocument" />
           <NavigationProperty Name="MapMenuToRoles" Relationship="DemoModel.fk__MapMenuToRole_User_AddedById" FromRole="User" ToRole="MapMenuToRole" />
           <NavigationProperty Name="MapMenuToRoles1" Relationship="DemoModel.fk__MapMenuToRole_User_UpdatedById" FromRole="User" ToRole="MapMenuToRole" />
           <NavigationProperty Name="Menus" Relationship="DemoModel.fk__Menu_User_AddedById" FromRole="User" ToRole="Menu" />
           <NavigationProperty Name="Menus1" Relationship="DemoModel.fk__Menu_User_UpdatedById" FromRole="User" ToRole="Menu" />
-          <NavigationProperty Name="ParentUserDataLists" Relationship="DemoModel.FK__ParentUse__Added__0F624AF8" FromRole="User" ToRole="ParentUserDataList" />
-          <NavigationProperty Name="ParentUserDataLists1" Relationship="DemoModel.FK__ParentUse__Updat__10566F31" FromRole="User" ToRole="ParentUserDataList" />
-          <NavigationProperty Name="ReminderSettings" Relationship="DemoModel.FK__ReminderS__Added__5AB9788F" FromRole="User" ToRole="ReminderSetting" />
-          <NavigationProperty Name="ReminderSettings1" Relationship="DemoModel.FK__ReminderS__Updat__5BAD9CC8" FromRole="User" ToRole="ReminderSetting" />
-          <NavigationProperty Name="ReminderSettingMembers" Relationship="DemoModel.FK__ReminderS__Added__75A278F5" FromRole="User" ToRole="ReminderSettingMember" />
-          <NavigationProperty Name="ReminderSettingMembers1" Relationship="DemoModel.FK__ReminderS__Updat__76969D2E" FromRole="User" ToRole="ReminderSettingMember" />
           <NavigationProperty Name="Role" Relationship="DemoModel.fk_User_Role_RoleId" FromRole="User" ToRole="Role" />
-          <NavigationProperty Name="SetReminders" Relationship="DemoModel.FK__SetRemind__Added__7B5B524B" FromRole="User" ToRole="SetReminder" />
-          <NavigationProperty Name="SetReminders1" Relationship="DemoModel.FK__SetRemind__Updat__7E37BEF6" FromRole="User" ToRole="SetReminder" />
           <NavigationProperty Name="Tickets" Relationship="DemoModel.FK_ticket_userid" FromRole="User" ToRole="Ticket" />
           <NavigationProperty Name="UserProfiles" Relationship="DemoModel.fk__UserProfile_User_AddedById" FromRole="User" ToRole="UserProfile" />
           <NavigationProperty Name="UserProfiles1" Relationship="DemoModel.fk__UserProfile_User_UpdatedById" FromRole="User" ToRole="UserProfile" />
@@ -3263,54 +1600,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Principal>
             <Dependent Role="ActivityLog">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__AddRemind__Added__6E01572D">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.AddReminderDetail" Role="AddReminderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AddReminderDetail">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__AddRemind__Updat__6EF57B66">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.AddReminderDetail" Role="AddReminderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AddReminderDetail">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__ApiSource_User_AddedById">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ApiSource" Role="ApiSource" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ApiSource">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__ApiSource_User_UpdatedById">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ApiSource" Role="ApiSource" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ApiSource">
-              <PropertyRef Name="UpdatedById" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3374,78 +1663,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk__ExcelDatas_user_Id">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ExcelData" Role="ExcelData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ExcelData">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__ExcelDatas_user_Id2">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ExcelData" Role="ExcelData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ExcelData">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk__FilterRule_User_UserId">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.FilterRule" Role="FilterRule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FilterRule">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__Added__662B2B3B">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.KYCDocument" Role="KYCDocument" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocument">
-              <PropertyRef Name="AddedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__KYCDocume__Appro__671F4F74">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.KYCDocument" Role="KYCDocument" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocument">
-              <PropertyRef Name="ApprovedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_kycdoc_userid">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.KYCDocument" Role="KYCDocument" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="KYCDocument">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk__MapMenuToRole_User_AddedById">
           <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
           <End Type="DemoModel.MapMenuToRole" Role="MapMenuToRole" Multiplicity="*" />
@@ -3494,78 +1711,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ParentUse__Added__0F624AF8">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ParentUserDataList" Role="ParentUserDataList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ParentUserDataList">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ParentUse__Updat__10566F31">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ParentUserDataList" Role="ParentUserDataList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ParentUserDataList">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Added__5AB9788F">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ReminderSetting" Role="ReminderSetting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSetting">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Updat__5BAD9CC8">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ReminderSetting" Role="ReminderSetting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSetting">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Added__75A278F5">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ReminderSettingMember" Role="ReminderSettingMember" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSettingMember">
-              <PropertyRef Name="AddedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ReminderS__Updat__76969D2E">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.ReminderSettingMember" Role="ReminderSettingMember" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReminderSettingMember">
-              <PropertyRef Name="UpdatedById" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_User_Role_RoleId">
           <End Type="DemoModel.Role" Role="Role" Multiplicity="0..1" />
           <End Type="DemoModel.User" Role="User" Multiplicity="*" />
@@ -3575,30 +1720,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SetRemind__Added__7B5B524B">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.SetReminder" Role="SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="AddedbyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SetRemind__Updat__7E37BEF6">
-          <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DemoModel.SetReminder" Role="SetReminder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SetReminder">
-              <PropertyRef Name="UpdatedbyId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3744,6 +1865,37 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UploadedDate" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Block">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="DistrictId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ZoneId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GramPanchayat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="BlockId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="BankAccount">
           <Key>
             <PropertyRef Name="Id" />
@@ -3756,47 +1908,21 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
           <Property Name="UpiAdress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="BranchName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="BranchAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BlockAmount" Type="Decimal" Precision="22" Scale="4" />
           <Property Name="AccountTypeId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
-          <Property Name="ApiId" Type="Int32" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AddedById" Type="Int32" />
           <Property Name="AddedDate" Type="DateTime" Precision="7" />
           <Property Name="UpdatedById" Type="Int32" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="AccountType" Relationship="DemoModel.FK__BankAccou__Accou__2EA5EC27" FromRole="BankAccount" ToRole="AccountType" />
-          <NavigationProperty Name="ApiSource" Relationship="DemoModel.fk_BankAccount_ApiSource_ApiId" FromRole="BankAccount" ToRole="ApiSource" />
           <NavigationProperty Name="User" Relationship="DemoModel.fk_BankAccount_User_AddedById" FromRole="BankAccount" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="DemoModel.fk_BankAccount_User_UpdatedById" FromRole="BankAccount" ToRole="User" />
           <NavigationProperty Name="User2" Relationship="DemoModel.fk_BankAccount_User_UserId" FromRole="BankAccount" ToRole="User" />
           <NavigationProperty Name="BankStatements" Relationship="DemoModel.fk_BankStatement_BankAccount_AccountId" FromRole="BankAccount" ToRole="BankStatement" />
           <NavigationProperty Name="BankStatements1" Relationship="DemoModel.fk_BankStatement_BankAccount_RefAccountId" FromRole="BankAccount" ToRole="BankStatement" />
         </EntityType>
-        <Association Name="FK__BankAccou__Accou__2EA5EC27">
-          <End Type="DemoModel.AccountType" Role="AccountType" Multiplicity="0..1" />
-          <End Type="DemoModel.BankAccount" Role="BankAccount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AccountType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BankAccount">
-              <PropertyRef Name="AccountTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_BankAccount_ApiSource_ApiId">
-          <End Type="DemoModel.ApiSource" Role="ApiSource" Multiplicity="0..1" />
-          <End Type="DemoModel.BankAccount" Role="BankAccount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ApiSource">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BankAccount">
-              <PropertyRef Name="ApiId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_BankAccount_User_AddedById">
           <End Type="DemoModel.User" Role="User" Multiplicity="0..1" />
           <End Type="DemoModel.BankAccount" Role="BankAccount" Multiplicity="*" />
@@ -3857,59 +1983,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Block">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="DistrictId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="District">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ZoneId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="GramPanchayat">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="BlockId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="JoinU">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="GuardianName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="AlternateMobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="DOB" Type="DateTime" Precision="0" />
-          <Property Name="Village" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="GramPanchayatId" Type="Int32" />
-          <Property Name="BlockId" Type="Int32" />
-          <Property Name="DistrictId" Type="Int32" />
-          <Property Name="PinCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Education" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FullAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AadharNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PanNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="UniqueId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="JoiningTime" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Zone">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3938,82 +2011,12 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AddMembers">
-            <EntityTypeMapping TypeName="DemoModel.AddMember">
-              <MappingFragment StoreEntitySet="AddMember">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="WhatsAppNumber" ColumnName="WhatsAppNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="AlterNumber" ColumnName="AlterNumber" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Isacttive" ColumnName="Isacttive" />
-                <ScalarProperty Name="Isdelete" ColumnName="Isdelete" />
-                <ScalarProperty Name="AddedbyId" ColumnName="AddedbyId" />
-                <ScalarProperty Name="UpdatedbyId" ColumnName="UpdatedbyId" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AddReminderDetails">
-            <EntityTypeMapping TypeName="DemoModel.AddReminderDetail">
-              <MappingFragment StoreEntitySet="AddReminderDetail">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="WhatsAppNumber" ColumnName="WhatsAppNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
-                <ScalarProperty Name="IsSms" ColumnName="IsSms" />
-                <ScalarProperty Name="IsWhatsApp" ColumnName="IsWhatsApp" />
-                <ScalarProperty Name="Addeddate" ColumnName="Addeddate" />
-                <ScalarProperty Name="Updateddate" ColumnName="Updateddate" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AmtTypes">
             <EntityTypeMapping TypeName="DemoModel.AmtType">
               <MappingFragment StoreEntitySet="AmtType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AmtTypeName" ColumnName="AmtTypeName" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ApiSources">
-            <EntityTypeMapping TypeName="DemoModel.ApiSource">
-              <MappingFragment StoreEntitySet="ApiSource">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ApiName" ColumnName="ApiName" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="ApiTypeId" ColumnName="ApiTypeId" />
-                <ScalarProperty Name="ApiUserId" ColumnName="ApiUserId" />
-                <ScalarProperty Name="ApiPassword" ColumnName="ApiPassword" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="ApiPackid" ColumnName="ApiPackid" />
-                <ScalarProperty Name="CallbackId" ColumnName="CallbackId" />
-                <ScalarProperty Name="ApiBal" ColumnName="ApiBal" />
-                <ScalarProperty Name="ActualBal" ColumnName="ActualBal" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="StatusCheckTime" ColumnName="StatusCheckTime" />
-                <ScalarProperty Name="IsAutoStatusCheck" ColumnName="IsAutoStatusCheck" />
-                <ScalarProperty Name="RequestGap" ColumnName="RequestGap" />
-                <ScalarProperty Name="BlockAmount" ColumnName="BlockAmount" />
-                <ScalarProperty Name="WaitTime" ColumnName="WaitTime" />
-                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
-                <ScalarProperty Name="ResendWaitTime" ColumnName="ResendWaitTime" />
-                <ScalarProperty Name="BaseUrl" ColumnName="BaseUrl" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4081,56 +2084,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EmiForReminders">
-            <EntityTypeMapping TypeName="DemoModel.EmiForReminder">
-              <MappingFragment StoreEntitySet="EmiForReminder">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="EmiDate" ColumnName="EmiDate" />
-                <ScalarProperty Name="EmiAmount" ColumnName="EmiAmount" />
-                <ScalarProperty Name="SetReminderId" ColumnName="SetReminderId" />
-                <ScalarProperty Name="EmiStatus" ColumnName="EmiStatus" />
-                <ScalarProperty Name="ReceivedPayment" ColumnName="ReceivedPayment" />
-                <ScalarProperty Name="PaymentDetail" ColumnName="PaymentDetail" />
-                <ScalarProperty Name="UploadImage" ColumnName="UploadImage" />
-                <ScalarProperty Name="ReceivedEmiDate" ColumnName="ReceivedEmiDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExcelDatas">
-            <EntityTypeMapping TypeName="DemoModel.ExcelData">
-              <MappingFragment StoreEntitySet="ExcelDatas">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="TechnialEmail" ColumnName="TechnialEmail" />
-                <ScalarProperty Name="AdminEmailid" ColumnName="AdminEmailid" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FilterRules">
-            <EntityTypeMapping TypeName="DemoModel.FilterRule">
-              <MappingFragment StoreEntitySet="FilterRules">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FixLength" ColumnName="FixLength" />
-                <ScalarProperty Name="RuleId" ColumnName="RuleId" />
-                <ScalarProperty Name="IsAllowSpace" ColumnName="IsAllowSpace" />
-                <ScalarProperty Name="IsAllowDuplicated" ColumnName="IsAllowDuplicated" />
-                <ScalarProperty Name="StartWith" ColumnName="StartWith" />
-                <ScalarProperty Name="EndWith" ColumnName="EndWith" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="KYCDistrictLists">
             <EntityTypeMapping TypeName="DemoModel.KYCDistrictList">
               <MappingFragment StoreEntitySet="KYCDistrictList">
@@ -4138,35 +2091,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
                 <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="stateId" ColumnName="stateId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="KYCDocuments">
-            <EntityTypeMapping TypeName="DemoModel.KYCDocument">
-              <MappingFragment StoreEntitySet="KYCDocuments">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="AurthSignName" ColumnName="AurthSignName" />
-                <ScalarProperty Name="AurthSignNameImg" ColumnName="AurthSignNameImg" />
-                <ScalarProperty Name="PanCardNum" ColumnName="PanCardNum" />
-                <ScalarProperty Name="PanCardImg" ColumnName="PanCardImg" />
-                <ScalarProperty Name="AadharCardNum" ColumnName="AadharCardNum" />
-                <ScalarProperty Name="AadharImage" ColumnName="AadharImage" />
-                <ScalarProperty Name="PolicyImg" ColumnName="PolicyImg" />
-                <ScalarProperty Name="CancelCheckImg" ColumnName="CancelCheckImg" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="StateId" ColumnName="StateId" />
-                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
-                <ScalarProperty Name="Pin" ColumnName="Pin" />
-                <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="IsKYC" ColumnName="IsKYC" />
-                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
-                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
-                <ScalarProperty Name="SelfImage" ColumnName="SelfImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4213,115 +2137,11 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrgTypes">
-            <EntityTypeMapping TypeName="DemoModel.OrgType">
-              <MappingFragment StoreEntitySet="OrgType">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OtherPaymentReminders">
-            <EntityTypeMapping TypeName="DemoModel.OtherPaymentReminder">
-              <MappingFragment StoreEntitySet="OtherPaymentReminder">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TotalPayment" ColumnName="TotalPayment" />
-                <ScalarProperty Name="RemainingPayment" ColumnName="RemainingPayment" />
-                <ScalarProperty Name="ReceivedPayment" ColumnName="ReceivedPayment" />
-                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
-                <ScalarProperty Name="PaymentDetail" ColumnName="PaymentDetail" />
-                <ScalarProperty Name="UploadImage" ColumnName="UploadImage" />
-                <ScalarProperty Name="ReminderStatus" ColumnName="ReminderStatus" />
-                <ScalarProperty Name="SetReminderId" ColumnName="SetReminderId" />
-                <ScalarProperty Name="ReminderDate" ColumnName="ReminderDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ParentUserDataLists">
-            <EntityTypeMapping TypeName="DemoModel.ParentUserDataList">
-              <MappingFragment StoreEntitySet="ParentUserDataList">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
-                <ScalarProperty Name="PasWord" ColumnName="PasWord" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Addeddate" ColumnName="Addeddate" />
-                <ScalarProperty Name="Updateddate" ColumnName="Updateddate" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PaymentStatus">
             <EntityTypeMapping TypeName="DemoModel.PaymentStatu">
               <MappingFragment StoreEntitySet="PaymentStatus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="DemoModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="api" ColumnName="api" />
-                <ScalarProperty Name="Retail" ColumnName="Retail" />
-                <ScalarProperty Name="monytransfear" ColumnName="monytransfear" />
-                <ScalarProperty Name="Getway" ColumnName="Getway" />
-                <ScalarProperty Name="Bilpayment" ColumnName="Bilpayment" />
-                <ScalarProperty Name="Aeps" ColumnName="Aeps" />
-                <ScalarProperty Name="Basic" ColumnName="Basic" />
-                <ScalarProperty Name="Roffer" ColumnName="Roffer" />
-                <ScalarProperty Name="Singlevendor" ColumnName="Singlevendor" />
-                <ScalarProperty Name="Multivendor" ColumnName="Multivendor" />
-                <ScalarProperty Name="Softwaretype" ColumnName="Softwaretype" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReminderPaymentTypes">
-            <EntityTypeMapping TypeName="DemoModel.ReminderPaymentType">
-              <MappingFragment StoreEntitySet="ReminderPaymentType">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-                <ScalarProperty Name="Isacttive" ColumnName="Isacttive" />
-                <ScalarProperty Name="Isdelete" ColumnName="Isdelete" />
-                <ScalarProperty Name="AddedbyId" ColumnName="AddedbyId" />
-                <ScalarProperty Name="UpdatedbyId" ColumnName="UpdatedbyId" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReminderSettings">
-            <EntityTypeMapping TypeName="DemoModel.ReminderSetting">
-              <MappingFragment StoreEntitySet="ReminderSetting">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Actionname" ColumnName="Actionname" />
-                <ScalarProperty Name="AllowSMS" ColumnName="AllowSMS" />
-                <ScalarProperty Name="AllowEmail" ColumnName="AllowEmail" />
-                <ScalarProperty Name="AllowWhatsApp" ColumnName="AllowWhatsApp" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="Displayname" ColumnName="Displayname" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReminderSettingMembers">
-            <EntityTypeMapping TypeName="DemoModel.ReminderSettingMember">
-              <MappingFragment StoreEntitySet="ReminderSettingMember">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="AllowSMS" ColumnName="AllowSMS" />
-                <ScalarProperty Name="AllowEmail" ColumnName="AllowEmail" />
-                <ScalarProperty Name="AllowWhatsApp" ColumnName="AllowWhatsApp" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4331,85 +2151,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RuleLists">
-            <EntityTypeMapping TypeName="DemoModel.RuleList">
-              <MappingFragment StoreEntitySet="RuleLists">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="RuleName" ColumnName="RuleName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="servers">
-            <EntityTypeMapping TypeName="DemoModel.server">
-              <MappingFragment StoreEntitySet="server">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Servername" ColumnName="Servername" />
-                <ScalarProperty Name="IP" ColumnName="IP" />
-                <ScalarProperty Name="Discription" ColumnName="Discription" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ServerType" ColumnName="ServerType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ServerPaymentReminders">
-            <EntityTypeMapping TypeName="DemoModel.ServerPaymentReminder">
-              <MappingFragment StoreEntitySet="ServerPaymentReminder">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ReminderDate" ColumnName="ReminderDate" />
-                <ScalarProperty Name="PayableAmount" ColumnName="PayableAmount" />
-                <ScalarProperty Name="SetReminderId" ColumnName="SetReminderId" />
-                <ScalarProperty Name="ReminderStatus" ColumnName="ReminderStatus" />
-                <ScalarProperty Name="ReceivedPayment" ColumnName="ReceivedPayment" />
-                <ScalarProperty Name="PaymentDetail" ColumnName="PaymentDetail" />
-                <ScalarProperty Name="UploadImage" ColumnName="UploadImage" />
-                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
-                <ScalarProperty Name="Addeddate" ColumnName="Addeddate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SetReminders">
-            <EntityTypeMapping TypeName="DemoModel.SetReminder">
-              <MappingFragment StoreEntitySet="SetReminder">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="ReminderPaymentTypeId" ColumnName="ReminderPaymentTypeId" />
-                <ScalarProperty Name="Software_Server_other_name" ColumnName="Software_Server_other_name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Project_startDate" ColumnName="Project_startDate" />
-                <ScalarProperty Name="TotalPayment_Payment" ColumnName="TotalPayment_Payment" />
-                <ScalarProperty Name="ReceivedPayment" ColumnName="ReceivedPayment" />
-                <ScalarProperty Name="RemainingPayment" ColumnName="RemainingPayment" />
-                <ScalarProperty Name="IsGst" ColumnName="IsGst" />
-                <ScalarProperty Name="GstPercent" ColumnName="GstPercent" />
-                <ScalarProperty Name="TotalEmi" ColumnName="TotalEmi" />
-                <ScalarProperty Name="EmiAmount" ColumnName="EmiAmount" />
-                <ScalarProperty Name="ReceivedAccountNumber" ColumnName="ReceivedAccountNumber" />
-                <ScalarProperty Name="FirstEmiDate" ColumnName="FirstEmiDate" />
-                <ScalarProperty Name="Emidays" ColumnName="Emidays" />
-                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
-                <ScalarProperty Name="ServerPaymenttype" ColumnName="ServerPaymenttype" />
-                <ScalarProperty Name="Isdelete" ColumnName="Isdelete" />
-                <ScalarProperty Name="AddedbyId" ColumnName="AddedbyId" />
-                <ScalarProperty Name="UpdatedbyId" ColumnName="UpdatedbyId" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="Payment" ColumnName="Payment" />
-                <ScalarProperty Name="otherReminderDate1" ColumnName="otherReminderDate1" />
-                <ScalarProperty Name="otherReminderDate2" ColumnName="otherReminderDate2" />
-                <ScalarProperty Name="otherReminderDate3" ColumnName="otherReminderDate3" />
-                <ScalarProperty Name="Software_Server_StartDate" ColumnName="Software_Server_StartDate" />
-                <ScalarProperty Name="IsStop" ColumnName="IsStop" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SoftwareTypes">
-            <EntityTypeMapping TypeName="DemoModel.SoftwareType">
-              <MappingFragment StoreEntitySet="SoftwareType">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="SoftwareName" ColumnName="SoftwareName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4465,32 +2206,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VendorUserLists">
-            <EntityTypeMapping TypeName="DemoModel.VendorUserList">
-              <MappingFragment StoreEntitySet="VendorUserList">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="ChildUserBal" ColumnName="ChildUserBal" />
-                <ScalarProperty Name="Due_Amt" ColumnName="Due_Amt" />
-                <ScalarProperty Name="AddAmount" ColumnName="AddAmount" />
-                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
-                <ScalarProperty Name="lapuId" ColumnName="lapuId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="WhatsAppApis">
             <EntityTypeMapping TypeName="DemoModel.WhatsAppApi">
               <MappingFragment StoreEntitySet="WhatsAppApi">
@@ -4507,20 +2222,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
                 <ScalarProperty Name="updatedate" ColumnName="updatedate" />
                 <ScalarProperty Name="AddedbyId" ColumnName="AddedbyId" />
                 <ScalarProperty Name="UpdatebyId" ColumnName="UpdatebyId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SentReminderDatas">
-            <EntityTypeMapping TypeName="DemoModel.SentReminderData">
-              <MappingFragment StoreEntitySet="SentReminderData">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="WhatsAppNumber" ColumnName="WhatsAppNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="SendMessage" ColumnName="SendMessage" />
-                <ScalarProperty Name="Addeddate" ColumnName="Addeddate" />
-                <ScalarProperty Name="SendBy" ColumnName="SendBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4620,29 +2321,6 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BankAccounts">
-            <EntityTypeMapping TypeName="DemoModel.BankAccount">
-              <MappingFragment StoreEntitySet="BankAccount">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="ApiId" ColumnName="ApiId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
-                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
-                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-                <ScalarProperty Name="UpiAdress" ColumnName="UpiAdress" />
-                <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
-                <ScalarProperty Name="HolderName" ColumnName="HolderName" />
-                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
-                <ScalarProperty Name="BankName" ColumnName="BankName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Blocks">
             <EntityTypeMapping TypeName="DemoModel.Block">
               <MappingFragment StoreEntitySet="Block">
@@ -4670,33 +2348,33 @@ warning 6002: The table/view 'Demo.dbo.SentReminderData' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="JoinUs">
-            <EntityTypeMapping TypeName="DemoModel.JoinU">
-              <MappingFragment StoreEntitySet="JoinUs">
-                <ScalarProperty Name="JoiningTime" ColumnName="JoiningTime" />
-                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
-                <ScalarProperty Name="PanNumber" ColumnName="PanNumber" />
-                <ScalarProperty Name="AadharNumber" ColumnName="AadharNumber" />
-                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
-                <ScalarProperty Name="Education" ColumnName="Education" />
-                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
-                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
-                <ScalarProperty Name="BlockId" ColumnName="BlockId" />
-                <ScalarProperty Name="GramPanchayatId" ColumnName="GramPanchayatId" />
-                <ScalarProperty Name="Village" ColumnName="Village" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="AlternateMobileNumber" ColumnName="AlternateMobileNumber" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="GuardianName" ColumnName="GuardianName" />
+          <EntitySetMapping Name="Zones">
+            <EntityTypeMapping TypeName="DemoModel.Zone">
+              <MappingFragment StoreEntitySet="Zone">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Zones">
-            <EntityTypeMapping TypeName="DemoModel.Zone">
-              <MappingFragment StoreEntitySet="Zone">
-                <ScalarProperty Name="Name" ColumnName="Name" />
+          <EntitySetMapping Name="BankAccounts">
+            <EntityTypeMapping TypeName="DemoModel.BankAccount">
+              <MappingFragment StoreEntitySet="BankAccount">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
+                <ScalarProperty Name="BlockAmount" ColumnName="BlockAmount" />
+                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="UpiAdress" ColumnName="UpiAdress" />
+                <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+                <ScalarProperty Name="HolderName" ColumnName="HolderName" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
